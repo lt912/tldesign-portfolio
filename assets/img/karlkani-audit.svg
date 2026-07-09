@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Lexend, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1600" height="900" fill="#101013"/>
+
+  <!-- titre -->
+  <text x="70" y="95" fill="#FFCC08" font-size="17" font-weight="700" letter-spacing="5">AUDIT UX · PROJET D'ÉTUDE</text>
+  <text x="70" y="152" fill="#FFFFFF" font-size="46" font-weight="800">Karl Kani · la home page actuelle</text>
+  <text x="70" y="192" fill="#A6A6AD" font-size="20">7 constats qui freinent l'expérience et l'image de la marque</text>
+
+  <!-- wireframe page actuelle -->
+  <rect x="70" y="240" width="640" height="590" rx="14" fill="#17171A" stroke="#2C2C33"/>
+  <rect x="90" y="260" width="600" height="34" rx="8" fill="#101013"/>
+  <circle cx="110" cy="277" r="5" fill="#3A3A41"/><circle cx="128" cy="277" r="5" fill="#3A3A41"/><circle cx="146" cy="277" r="5" fill="#3A3A41"/>
+
+  <!-- header -->
+  <rect x="90" y="306" width="600" height="46" fill="#1F1F24"/>
+  <rect x="106" y="320" width="92" height="18" rx="4" fill="#3A3A41"/>
+  <circle cx="648" cy="329" r="9" fill="none" stroke="#6E6E76" stroke-width="2.5"/>
+  <line x1="655" y1="336" x2="663" y2="344" stroke="#6E6E76" stroke-width="2.5"/>
+
+  <!-- image plein ecran -->
+  <rect x="90" y="360" width="600" height="212" fill="#232329"/>
+  <text x="390" y="452" fill="#5A5A63" font-size="17" font-weight="600" text-anchor="middle">IMAGE PLEIN ÉCRAN · NON CLIQUABLE</text>
+  <text x="390" y="478" fill="#4A4A52" font-size="14" text-anchor="middle">plus grande que l'écran d'un ordinateur</text>
+
+  <!-- texte peu lisible sur image -->
+  <rect x="110" y="520" width="330" height="10" rx="5" fill="#3E3E46"/>
+  <rect x="110" y="540" width="250" height="10" rx="5" fill="#34343B"/>
+  <text x="654" y="560" fill="#4A4A52" font-size="13" text-anchor="end">© ... ?</text>
+
+  <!-- bouton minuscule -->
+  <rect x="110" y="590" width="84" height="22" rx="11" fill="#2E2E34"/>
+  <text x="152" y="605" fill="#6E6E76" font-size="10" font-weight="700" text-anchor="middle">SHOP</text>
+
+  <!-- deuxieme image plein ecran -->
+  <rect x="90" y="630" width="600" height="144" fill="#232329"/>
+  <text x="390" y="708" fill="#5A5A63" font-size="16" font-weight="600" text-anchor="middle">ENCORE UNE IMAGE PLEIN ÉCRAN</text>
+
+  <!-- footer -->
+  <rect x="90" y="788" width="600" height="26" fill="#1F1F24"/>
+
+  <!-- marqueurs numerotes -->
+  <g font-size="16" font-weight="800" text-anchor="middle">
+    <circle cx="648" cy="306" r="16" fill="#FFCC08"/><text x="648" y="312" fill="#000">1</text>
+    <circle cx="90" cy="360" r="16" fill="#FFCC08"/><text x="90" y="366" fill="#000">2</text>
+    <circle cx="90" cy="525" r="16" fill="#FFCC08"/><text x="90" y="531" fill="#000">3</text>
+    <circle cx="690" cy="556" r="16" fill="#FFCC08"/><text x="690" y="562" fill="#000">4</text>
+    <circle cx="690" cy="452" r="16" fill="#FFCC08"/><text x="690" y="458" fill="#000">5</text>
+    <circle cx="214" cy="601" r="16" fill="#FFCC08"/><text x="214" y="607" fill="#000">6</text>
+    <circle cx="690" cy="774" r="16" fill="#FFCC08"/><text x="690" y="780" fill="#000">7</text>
+  </g>
+
+  <!-- liste des constats -->
+  <g>
+    <circle cx="810" cy="288" r="16" fill="#FFCC08"/><text x="810" y="294" fill="#000" font-size="16" font-weight="800" text-anchor="middle">1</text>
+    <text x="846" y="283" fill="#FFFFFF" font-size="22" font-weight="700">La recherche demande 2 clics</text>
+    <text x="846" y="308" fill="#A6A6AD" font-size="16">Une action clé rendue inutilement longue.</text>
+
+    <circle cx="810" cy="366" r="16" fill="#FFCC08"/><text x="810" y="372" fill="#000" font-size="16" font-weight="800" text-anchor="middle">2</text>
+    <text x="846" y="361" fill="#FFFFFF" font-size="22" font-weight="700">Images plein écran</text>
+    <text x="846" y="386" fill="#A6A6AD" font-size="16">Une impression d'encombrement dès l'arrivée.</text>
+
+    <circle cx="810" cy="444" r="16" fill="#FFCC08"/><text x="810" y="450" fill="#000" font-size="16" font-weight="800" text-anchor="middle">3</text>
+    <text x="846" y="439" fill="#FFFFFF" font-size="22" font-weight="700">Lisibilité du texte compromise</text>
+    <text x="846" y="464" fill="#A6A6AD" font-size="16">Contraste et hiérarchie insuffisants sur les visuels.</text>
+
+    <circle cx="810" cy="522" r="16" fill="#FFCC08"/><text x="810" y="528" fill="#000" font-size="16" font-weight="800" text-anchor="middle">4</text>
+    <text x="846" y="517" fill="#FFFFFF" font-size="22" font-weight="700">Attribution des images floue</text>
+    <text x="846" y="542" fill="#A6A6AD" font-size="16">On ne sait pas à quoi renvoie chaque visuel.</text>
+
+    <circle cx="810" cy="600" r="16" fill="#FFCC08"/><text x="810" y="606" fill="#000" font-size="16" font-weight="800" text-anchor="middle">5</text>
+    <text x="846" y="595" fill="#FFFFFF" font-size="22" font-weight="700">Images non cliquables</text>
+    <text x="846" y="620" fill="#A6A6AD" font-size="16">Et plus grandes que l'écran d'un ordinateur.</text>
+
+    <circle cx="810" cy="678" r="16" fill="#FFCC08"/><text x="810" y="684" fill="#000" font-size="16" font-weight="800" text-anchor="middle">6</text>
+    <text x="846" y="673" fill="#FFFFFF" font-size="22" font-weight="700">Boutons trop petits</text>
+    <text x="846" y="698" fill="#A6A6AD" font-size="16">Des zones de clic sous-dimensionnées.</text>
+
+    <circle cx="810" cy="756" r="16" fill="#FFCC08"/><text x="810" y="762" fill="#000" font-size="16" font-weight="800" text-anchor="middle">7</text>
+    <text x="846" y="751" fill="#FFFFFF" font-size="22" font-weight="700">Défauts répétés jusqu'au footer</text>
+    <text x="846" y="776" fill="#A6A6AD" font-size="16">Les mêmes problèmes se cumulent en bas de page.</text>
+  </g>
+
+  <text x="1530" y="860" fill="#6E6E76" font-size="14" font-weight="600" text-anchor="end">TL DESIGN · Étude UX Karl Kani · 1/2</text>
+</svg>

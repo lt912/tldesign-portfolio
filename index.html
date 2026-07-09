@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TL DESIGN · Lounès Taïbi · Chef de projet créatif</title>
+<meta name="description" content="De la stratégie de marque au projet livré. Design consulting & gestion de projet créatif/digital.">
+<meta property="og:title" content="TL DESIGN · Lounès Taïbi">
+<meta property="og:description" content="De la stratégie de marque au projet livré. Chef de projet créatif.">
+<meta property="og:image" content="assets/logo.jpg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#0B0B0C; --noir2:#111113; --panel:#17171A;
+  --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.06);
+  --jaune:#FFCC08; --jaune-soft:rgba(255,204,8,.12);
+  --blanc:#FFFFFF; --gris:#A6A6AD; --gris2:#6E6E76;
+  --ff:'Lexend',system-ui,sans-serif;
+  --maxw:1140px; --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff);background:var(--noir);color:var(--blanc);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font-family:var(--ff);cursor:pointer}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+::selection{background:var(--jaune);color:#000}
+
+/* logo mark : clips the white corners of the jpg into a circle */
+.mark{display:block;border-radius:50%;overflow:hidden;flex:none;background:#000}
+.mark img{width:104%;height:104%;margin:-2%}
+
+/* ---------- header ---------- */
+.hd{position:sticky;top:0;z-index:60;background:rgba(11,11,12,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line2)}
+.hd__in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.04em;font-size:15px;white-space:nowrap}
+.logo .mark{width:34px;height:34px}
+.logo span b{color:var(--jaune)}
+.nv{display:flex;gap:26px;font-size:13.5px;color:var(--gris);font-weight:500}
+.nv a:hover{color:#fff}
+.hd__r{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;font-size:12px;font-weight:600}
+.lang button{background:none;border:none;color:var(--gris);padding:6px 12px}
+.lang button.on{background:var(--jaune);color:#000}
+.cta{display:inline-block;background:var(--jaune);color:#000;font-weight:700;font-size:13.5px;padding:10px 18px;border-radius:99px;border:none}
+.cta:hover{background:#ffd83e}
+@media(max-width:840px){.nv{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:88px 0 64px}
+.hero__in{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center}
+.hero .mark{width:76px;height:76px;margin-bottom:26px;border:1px solid var(--line)}
+.kick{display:block;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--jaune)}
+.hero h1{font-size:clamp(38px,6vw,66px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-top:16px}
+.hero h1 b{color:var(--jaune);font-weight:800}
+.hero__sub{margin-top:22px;font-size:16.5px;color:var(--gris);max-width:56ch;line-height:1.7;font-weight:300}
+.hero__sub b{color:#fff;font-weight:600}
+.hero__ctas{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-ghost{display:inline-block;border:1px solid var(--line);color:#fff;background:none;font-weight:600;font-size:13.5px;padding:12px 20px;border-radius:99px}
+.btn-ghost:hover{border-color:var(--jaune);color:var(--jaune)}
+.cta.big{padding:13px 24px;font-size:14.5px}
+.hcard{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:28px}
+.hcard__tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris2);font-weight:600}
+.hcard h3{font-size:20px;font-weight:700;margin-top:10px;line-height:1.3}
+.hcard h3 b{color:var(--jaune)}
+.hcard__rows{margin-top:20px}
+.hcard__rows div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-top:1px solid var(--line2);font-size:13.5px}
+.hcard__rows dt{color:var(--gris)}
+.hcard__rows dd{color:#fff;font-weight:600;text-align:right}
+.hcard__foot{margin-top:18px;display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--gris)}
+.hcard__foot i{width:8px;height:8px;border-radius:50%;background:var(--jaune);flex:none}
+@media(max-width:900px){.hero__in{grid-template-columns:1fr}.hcard{max-width:520px}}
+
+/* illustrations d'accompagnement */
+.hasillu{position:relative}
+.illu{position:absolute;right:26px;bottom:0;height:min(300px,26vw);pointer-events:none;user-select:none}
+@media(max-width:1000px){.illu{display:none}}
+
+/* références */
+.refs{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);background:var(--noir2);padding:18px 0}
+.refs__in{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;font-size:13px}
+.refs__label{color:var(--gris2);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;flex:none}
+.refs__list{color:var(--gris);font-weight:500;letter-spacing:.03em}
+
+/* ---------- sections ---------- */
+.sec{padding:88px 0}
+.sec__hd{max-width:720px}
+.sec__hd h2{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:14px}
+.sec__hd p{margin-top:14px;color:var(--gris);font-size:15px;line-height:1.7;font-weight:300}
+
+/* expertises */
+.exp{display:grid;grid-template-columns:1fr 1fr;gap:0 44px;margin-top:36px;max-width:860px}
+.exp span{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line2);font-size:14.5px;color:#E8E8EC}
+.exp i{width:7px;height:7px;background:var(--jaune);border-radius:2px;flex:none}
+@media(max-width:640px){.exp{grid-template-columns:1fr}}
+.stack{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:28px;color:var(--gris2);font-size:13px;font-weight:600;letter-spacing:.04em}
+
+/* projets */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.pcard-p{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden;display:flex;flex-direction:column}
+.pcard-p:hover{border-color:var(--jaune)}
+.pcard-p .im{height:230px;overflow:hidden;background:var(--noir2)}
+.pcard-p .im img{width:100%;height:100%;object-fit:cover;object-position:top}
+.pcard-p .bd{padding:20px 22px 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pcard-p h3{font-size:17px;font-weight:700;line-height:1.3}
+.pcard-p p{font-size:13.5px;color:var(--gris);line-height:1.55;font-weight:300}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+.pill{font-size:10.5px;letter-spacing:.06em;color:var(--jaune);background:var(--jaune-soft);border-radius:99px;padding:4px 10px;font-weight:600}
+
+/* cartes larges (dans la grille projets) */
+.pcard-p.wide{grid-column:1/-1}
+.pcard-p.wide .im{height:290px}
+@media(max-width:760px){.pcard-p.wide .im{height:190px}}
+
+/* offres */
+.prix{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.ocard{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:30px;display:flex;flex-direction:column;position:relative}
+.ocard.mid{border-color:var(--jaune)}
+.ocard__tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris2);font-weight:700}
+.ocard.mid .ocard__tag{color:var(--jaune)}
+.ocard__price{margin-top:14px;font-size:40px;font-weight:800;letter-spacing:-.02em}
+.ocard__price small{font-size:14px;color:var(--gris);font-weight:400}
+.ocard ul{list-style:none;margin-top:20px;flex:1}
+.ocard li{font-size:13.5px;color:#DADAE0;padding:9px 0;border-top:1px solid var(--line2);display:flex;gap:10px;font-weight:300}
+.ocard li::before{content:"→";color:var(--jaune);font-weight:700}
+.ocard .cta{margin-top:24px;text-align:center}
+.badge{position:absolute;top:-12px;right:22px;background:var(--jaune);color:#000;font-size:10.5px;font-weight:800;letter-spacing:.1em;border-radius:99px;padding:5px 12px;text-transform:uppercase}
+@media(max-width:860px){.prix{grid-template-columns:1fr}}
+
+/* contact */
+.csplit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px;align-items:start}
+.cleft{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:32px}
+.cleft h3{font-size:22px;font-weight:800}
+.cleft>p{margin-top:12px;color:var(--gris);font-size:14.5px;font-weight:300;line-height:1.7}
+.cinfo{margin-top:24px;display:grid;gap:13px}
+.cinfo a,.cinfo div{display:flex;gap:12px;align-items:center;font-size:14px;color:#E8E8EC}
+.cinfo i{width:8px;height:8px;background:var(--jaune);border-radius:50%;flex:none}
+.cinfo a:hover{color:var(--jaune)}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){form .row{grid-template-columns:1fr}}
+.fld{margin-bottom:12px}
+.fld input,.fld select,.fld textarea{width:100%;background:var(--noir2);border:1px solid var(--line);border-radius:10px;color:#fff;font-family:var(--ff);font-size:14px;padding:13px 15px;outline:none;font-weight:300}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--jaune)}
+.fld textarea{min-height:130px;resize:vertical}
+.hp{position:absolute;left:-6000px;opacity:0;height:0;overflow:hidden}
+.fnote{font-size:11.5px;color:var(--gris2);margin-top:10px}
+@media(max-width:860px){.csplit{grid-template-columns:1fr}}
+
+/* ---------- page détail projet ---------- */
+.page{display:none}
+.page.on{display:block}
+.pd__back{display:inline-flex;align-items:center;gap:9px;color:var(--gris);font-size:13.5px;font-weight:500;margin-top:34px}
+.pd__back:hover{color:var(--jaune)}
+.pd__hero{margin-top:26px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel)}
+.pd__hero img{width:100%;max-height:520px;object-fit:cover;object-position:top}
+.pd h1{font-size:clamp(30px,4.6vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin-top:32px}
+.pd__meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.star{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.scard{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:26px}
+.scard h4{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--jaune);font-weight:700}
+.scard p{margin-top:12px;font-size:14.5px;color:#DADAE0;line-height:1.7;font-weight:300}
+.scard p b{color:#fff;font-weight:600}
+.scard.res{grid-column:span 2;border-color:var(--jaune)}
+@media(max-width:760px){.star{grid-template-columns:1fr}.scard.res{grid-column:span 1}}
+.pd__gal{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.pd__gal figure{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel)}
+.pd__gal img{width:100%;max-height:300px;object-fit:cover;object-position:top}
+@media(max-width:700px){.pd__gal{grid-template-columns:1fr}}
+.pd__stack{margin-top:44px}
+.pd__stack h3,.pd__more h3{font-size:18px;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chip{border:1px solid var(--line);border-radius:99px;padding:9px 16px;font-size:13px;color:#E8E8EC;background:var(--noir2)}
+.pd__more{margin-top:56px;padding-top:36px;border-top:1px solid var(--line2)}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.mini a{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px}
+.mini a:hover{border-color:var(--jaune)}
+.mini h5{font-size:14px;font-weight:700;line-height:1.3}
+.mini span{display:block;margin-top:7px;font-size:11.5px;color:var(--gris2)}
+@media(max-width:700px){.mini{grid-template-columns:1fr}}
+
+/* footer */
+.ft{border-top:1px solid var(--line2);padding:40px 0 32px;background:var(--noir2)}
+.ft__in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.ft .logo .mark{width:30px;height:30px}
+.ft__links{display:flex;gap:22px;font-size:13px;color:var(--gris);flex-wrap:wrap}
+.ft__links a:hover{color:var(--jaune)}
+.ft small{color:var(--gris2);font-size:12px}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hd">
+  <div class="wrap hd__in">
+    <a class="logo" href="#/"><span class="mark"><img src="assets/logo.jpg" alt="TL DESIGN"></span><span>TL <b>DESIGN</b></span></a>
+    <nav class="nv">
+      <a href="#/projets" data-i18n="nav_projects"></a>
+      <a href="#/#offres" data-i18n="nav_offers"></a>
+    </nav>
+    <div class="hd__r">
+      <div class="lang"><button id="btn-fr" onclick="setLang('fr')">FR</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+      <a class="cta" href="#/#contact" data-i18n="nav_contact"></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HOME ============ -->
+<main class="page" id="page-home">
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <span class="mark"><img src="assets/logo.jpg" alt=""></span>
+        <span class="kick" data-i18n="hero_kick"></span>
+        <h1 data-i18n-html="hero_title"></h1>
+        <p class="hero__sub" data-i18n-html="hero_sub"></p>
+        <div class="hero__ctas">
+          <a class="cta big" href="#/projets" data-i18n="hero_cta1"></a>
+          <a class="btn-ghost" href="#/#contact" data-i18n="hero_cta2"></a>
+        </div>
+      </div>
+      <aside class="hcard">
+        <span class="hcard__tag" data-i18n="hc_tag"></span>
+        <h3 data-i18n-html="hc_title"></h3>
+        <div class="hcard__rows">
+          <div><dt data-i18n="hc_r1k"></dt><dd data-i18n="hc_r1v"></dd></div>
+          <div><dt data-i18n="hc_r2k"></dt><dd data-i18n="hc_r2v"></dd></div>
+          <div><dt data-i18n="hc_r3k"></dt><dd data-i18n="hc_r3v"></dd></div>
+          <div><dt data-i18n="hc_r4k"></dt><dd data-i18n="hc_r4v"></dd></div>
+        </div>
+        <div class="hcard__foot"><i></i><span data-i18n="hc_foot"></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="refs">
+    <div class="wrap refs__in">
+      <span class="refs__label" data-i18n="refs_label"></span>
+      <span class="refs__list">Orange · Comet Meetings · Novu AI · Paris Insider · La Sultane de Saba · MJCCS · Vincero · Handisport · Cribbz · WeDD</span>
+    </div>
+  </div>
+
+  <section class="sec" id="expertises">
+    <div class="wrap hasillu">
+      <img class="illu" src="assets/img/illu-tablette.png" alt="" style="bottom:auto;top:150px;height:min(280px,22vw)">
+      <div class="sec__hd">
+        <span class="kick" data-i18n="exp_kick"></span>
+        <h2 data-i18n="exp_title"></h2>
+        <p data-i18n="exp_sub"></p>
+      </div>
+      <div class="exp" id="exp"></div>
+      <div class="stack" id="stack"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="projets" style="padding-top:0">
+    <div class="wrap hasillu">
+      <img class="illu" src="assets/img/illu-lecture.png" alt="" style="bottom:auto;top:-40px;height:min(165px,13vw)">
+      <div class="sec__hd">
+        <span class="kick" data-i18n="pj_kick"></span>
+        <h2 data-i18n="pj_title"></h2>
+        <p data-i18n="pj_sub"></p>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div style="text-align:center;margin-top:36px">
+        <a class="btn-ghost" href="#/projets" data-i18n="pj_all"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offres" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__hd">
+        <span class="kick" data-i18n="of_kick"></span>
+        <h2 data-i18n="of_title"></h2>
+        <p data-i18n="of_sub"></p>
+      </div>
+      <div class="prix" id="prix"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__hd">
+        <span class="kick" data-i18n="ct_kick"></span>
+        <h2 data-i18n="ct_title"></h2>
+      </div>
+      <div class="csplit">
+        <div class="cleft">
+          <h3 data-i18n="ct_h"></h3>
+          <p data-i18n="ct_p"></p>
+          <div class="cinfo">
+            <a href="mailto:lounestaibipro@gmail.com"><i></i>lounestaibipro@gmail.com</a>
+            <a href="https://www.linkedin.com/in/lounestaibi-pro/" target="_blank" rel="noopener"><i></i>linkedin.com/in/lounestaibi-pro</a>
+            <a class="cv-link" href="#canva-link" target="_blank" rel="noopener"><i></i><span data-i18n="ct_canva"></span></a>
+            <div><i></i><span data-i18n="ct_loc"></span></div>
+          </div>
+        </div>
+        <form onsubmit="return sendMail(this,event)">
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+          <div class="row">
+            <div class="fld"><input required data-i18n-ph="f_name" name="name"></div>
+            <div class="fld"><input required type="email" data-i18n-ph="f_email" name="email"></div>
+          </div>
+          <div class="fld"><select name="subject" id="ct-subject"></select></div>
+          <div class="fld"><textarea required data-i18n-ph="f_msg" name="message"></textarea></div>
+          <button class="cta big" style="width:100%" data-i18n="f_send"></button>
+          <p class="fnote" data-i18n="f_note"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAGE PROJETS (tous) ============ -->
+<main class="page" id="page-projects">
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec__hd">
+        <span class="kick" data-i18n="pp_kick"></span>
+        <h2 data-i18n="pp_title"></h2>
+        <p data-i18n="pp_sub"></p>
+      </div>
+      <div class="grid" id="grid-all"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAGE PROJET (détail) ============ -->
+<main class="page" id="page-detail">
+  <div class="wrap pd" id="pd-root"></div>
+</main>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="wrap ft__in">
+    <a class="logo" href="#/"><span class="mark"><img src="assets/logo.jpg" alt=""></span><span>TL <b>DESIGN</b></span></a>
+    <div class="ft__links">
+      <a href="#/projets" data-i18n="nav_projects"></a>
+      <a href="#canva-link" class="cv-link" target="_blank" rel="noopener">Portfolio Canva</a>
+      <a href="https://www.linkedin.com/in/lounestaibi-pro/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:lounestaibipro@gmail.com">Email</a>
+    </div>
+    <small data-i18n="ft_c"></small>
+  </div>
+</footer>
+
+<script>
+/* ================= CONFIG ================= */
+const CANVA_URL = "https://canva.link/m38qnnqfetldrsu";
+
+/* ================= I18N ================= */
+const I18N = {
+fr:{
+ nav_projects:"Projets", nav_offers:"Offres", nav_contact:"Contact",
+ hero_kick:"Lounès Taïbi · Chef de projet créatif",
+ hero_title:"De la stratégie de marque <b>au projet livré.</b>",
+ hero_sub:"Je fais le pont entre la créa et l'exécution. <b>Designer devenu chef de projet</b> : je cadre, je pilote, je livre, chez Orange comme pour des marques internationales.",
+ hero_cta1:"Voir mes projets", hero_cta2:"Me contacter",
+ hc_tag:"Actuellement", hc_title:"Chef de projet DRHG<br>& coordinateur chez <b>Orange</b>",
+ hc_r1k:"Périmètre", hc_r1v:"Division QVCT · site Bridge",
+ hc_r2k:"Refonte RH interne", hc_r2v:"26 pays",
+ hc_r3k:"Entrepreneuriat", hc_r3v:"Cribbz · WeDD · TL DESIGN",
+ hc_r4k:"Formation", hc_r4v:"MSc Epitech · HEC Paris",
+ hc_foot:"Disponible pour missions freelance",
+ refs_label:"Ils m'ont fait confiance",
+ exp_kick:"Expertises", exp_title:"Un profil hybride, un seul interlocuteur.",
+ exp_sub:"La stratégie, le design et le pilotage réunis : moins d'allers-retours, plus de décisions, un projet qui avance.",
+ exp_items:["Gestion de projet créatif & digital","Branding & consulting","Communication visuelle","Logo & chartes graphiques","UI/UX design","Conception web & mobile","Illustration print / digital","Coordination multi-équipes"],
+ stack:["Suite Adobe","Figma","Notion","Agile","Cloud (Google Certified)","Dynamics 365 (Certified)"],
+ pj_kick:"Études de cas", pj_title:"Une sélection de quatre projets.",
+ pj_sub:"Chaque étude de cas suit la méthode Situation → Tâche → Action → Résultat.",
+ pj_all:"Voir les 20 projets",
+ pp_kick:"Portfolio", pp_title:"Tous les projets.",
+ pp_sub:"Vingt études de cas, toutes pilotées de la même façon : cadrer, produire, livrer.",
+ of_kick:"Offres TL DESIGN", of_title:"Trois formats, un même niveau d'exigence.",
+ of_sub:"Base TJM 350 €. Chaque pack est cadré, chiffré et suivi : vous savez ce que vous achetez.",
+ packs:[
+  {tag:"Pack Essentiel",price:"350 €",items:["Production d'un élément graphique simple","Livraison rapide et prête à l'emploi","Modification supplémentaire : 50 €"],cta:"Choisir Essentiel"},
+  {tag:"Pack Avancé",price:"700 €",badge:"Le plus choisi",items:["Conception complète","Suivi de projet standard","2 modifications incluses"],cta:"Choisir Avancé"},
+  {tag:"Pack Premium",price:"1 400 €",items:["Gestion de projet créative de A à Z","Stratégie, branding & consulting dédié","Suivi sur-mesure · 5 modifications incluses"],cta:"Choisir Premium"}],
+ ct_kick:"Contact", ct_title:"Un projet en tête ? Parlons-en.",
+ ct_h:"Lounès Taïbi", ct_p:"Chef de projet créatif. Direct, structuré, orienté résultat. Dites-moi où vous voulez aller, je m'occupe du comment.",
+ ct_canva:"Portfolio créatif sur Canva",
+ ct_loc:"Issy-les-Moulineaux · Île-de-France",
+ f_name:"Nom & prénom", f_email:"Email", f_msg:"Votre message…", f_send:"Envoyer le message",
+ f_note:"Le formulaire ouvre votre client mail : aucune donnée n'est stockée.",
+ f_ok:"Message prêt : votre client mail va s'ouvrir.",
+ subjects:["Une question simple","Une demande freelance","Une opportunité de poste","Autre"],
+ ft_c:"© 2026 TL DESIGN · Lounès Taïbi. Tous droits réservés.",
+ pd_back:"Retour aux projets", pd_more:"Autres projets", pd_stack:"Outils utilisés sur ce projet",
+ star:{S:"Situation",T:"Tâche",A:"Action",R:"Résultat"}
+},
+en:{
+ nav_projects:"Projects", nav_offers:"Services", nav_contact:"Contact",
+ hero_kick:"Lounès Taïbi · Creative project manager",
+ hero_title:"From brand strategy <b>to delivered project.</b>",
+ hero_sub:"I bridge creative and execution. <b>A designer turned project manager</b>: I frame, I drive, I deliver, at Orange and for international brands.",
+ hero_cta1:"See my projects", hero_cta2:"Get in touch",
+ hc_tag:"Currently", hc_title:"HR project manager<br>& coordinator at <b>Orange</b>",
+ hc_r1k:"Scope", hc_r1v:"QVCT division · Bridge site",
+ hc_r2k:"Internal HR revamp", hc_r2v:"26 countries",
+ hc_r3k:"Entrepreneurship", hc_r3v:"Cribbz · WeDD · TL DESIGN",
+ hc_r4k:"Education", hc_r4v:"MSc Epitech · HEC Paris",
+ hc_foot:"Available for freelance work",
+ refs_label:"They trusted me",
+ exp_kick:"Expertise", exp_title:"A hybrid profile, one single point of contact.",
+ exp_sub:"Strategy, design and delivery in one place: fewer back-and-forths, faster decisions, a project that moves.",
+ exp_items:["Creative & digital project management","Branding & consulting","Visual communication","Logo & brand guidelines","UI/UX design","Web & mobile design","Print / digital illustration","Cross-team coordination"],
+ stack:["Adobe Suite","Figma","Notion","Agile","Cloud (Google Certified)","Dynamics 365 (Certified)"],
+ pj_kick:"Case studies", pj_title:"A selection of four projects.",
+ pj_sub:"Every case study follows the Situation → Task → Action → Result method.",
+ pj_all:"See all 20 projects",
+ pp_kick:"Portfolio", pp_title:"All projects.",
+ pp_sub:"Twenty case studies, all run the same way: frame, produce, deliver.",
+ of_kick:"TL DESIGN services", of_title:"Three formats, one standard of quality.",
+ of_sub:"Day rate €350. Every pack is scoped, priced and tracked: you know what you're buying.",
+ packs:[
+  {tag:"Essential Pack",price:"€350",items:["One clean graphic asset, produced fast","Delivered ready to use","Extra revision: €50"],cta:"Choose Essential"},
+  {tag:"Advanced Pack",price:"€700",badge:"Most popular",items:["Full concept & design","Standard project follow-up","2 revisions included"],cta:"Choose Advanced"},
+  {tag:"Premium Pack",price:"€1,400",items:["End-to-end creative project management","Strategy, branding & dedicated consulting","Tailored follow-up · 5 revisions included"],cta:"Choose Premium"}],
+ ct_kick:"Contact", ct_title:"Got a project in mind? Let's talk.",
+ ct_h:"Lounès Taïbi", ct_p:"Creative project manager. Direct, structured, result-driven. Tell me where you want to go, I'll handle the how.",
+ ct_canva:"Creative portfolio on Canva",
+ ct_loc:"Issy-les-Moulineaux · Greater Paris",
+ f_name:"Full name", f_email:"Email", f_msg:"Your message…", f_send:"Send message",
+ f_note:"The form opens your mail client: no data is stored.",
+ f_ok:"Message ready: your mail client will open.",
+ subjects:["A quick question","A freelance request","A job opportunity","Other"],
+ ft_c:"© 2026 TL DESIGN · Lounès Taïbi. All rights reserved.",
+ pd_back:"Back to projects", pd_more:"More projects", pd_stack:"Tools used on this project",
+ star:{S:"Situation",T:"Task",A:"Action",R:"Result"}
+}};
+
+/* ================= PROJETS ================= */
+const P = [
+{slug:"orange-anoo",img:"assets/img/anoo.jpg",gal:["assets/img/anoo-g1.jpg","assets/img/anoo-g2.jpg"],
+ stack:["SharePoint","Anoo","Figma","IA Dinootoo","Notion"],
+ fr:{t:"Orange · Refonte du portail RH interne",
+  d:"Coordination des nouvelles pages Anoo Services, dans une refonte déployée sur 26 pays.",
+  tags:["Coordination","Stratégie","Communication"],
+  S:"Le portail RH interne d'Orange évoluait dans le cadre du Programme Harmonie, avec une refonte touchant <b>26 pays</b>. Les contenus QVCT, rédigés par des experts, restaient difficiles d'accès pour les salariés.",
+  T:"Coordonner la création des nouvelles pages QVCT/SST du portail, et construire un SharePoint miroir servant d'atelier de simplification des contenus.",
+  A:"Co-construction de l'arborescence avec la division Anoo · gestion et production des pages · méthode du miroir site ↔ SharePoint · vulgarisation du langage expert · intégration de l'IA interne Dinootoo pour la personnalisation salarié.",
+  R:"<b>10 pages livrées</b> sur le portail et <b>plus de 20 pages</b> sur le SharePoint miroir. Une expérience UX-friendly, desktop-first et responsive, personnalisable par salarié grâce à l'IA Dinootoo."},
+ en:{t:"Orange · Internal HR portal revamp",
+  d:"Coordinated the new Anoo Services pages, within a revamp rolled out across 26 countries.",
+  tags:["Coordination","Strategy","Communication"],
+  S:"Orange's internal HR portal was being redesigned under the Harmonie Programme, a revamp spanning <b>26 countries</b>. QVCT content, written by experts, remained hard for employees to digest.",
+  T:"Coordinate the creation of the new QVCT/SST portal pages, and build a mirror SharePoint used as a content-simplification workshop.",
+  A:"Co-built the sitemap with the Anoo division · managed and produced the pages · site ↔ SharePoint mirror method · translated expert language into plain content · integrated the internal Dinootoo AI for employee personalisation.",
+  R:"<b>10 pages shipped</b> on the portal and <b>20+ pages</b> on the mirror SharePoint. A UX-friendly, desktop-first responsive experience, personalisable per employee through Dinootoo AI."}},
+
+{slug:"orange-kit-visuel",img:"assets/img/kit.jpg",gal:[],
+ stack:["Brand Factory Orange","Suite Adobe","SharePoint","PowerPoint"],
+ fr:{t:"Orange · Système visuel & bibliothèque QVCT",
+  d:"Un système d'images chartrées pour toute la DQVCT. Piloté seul, de A à Z.",
+  tags:["Branding","Stratégie","Graphisme"],
+  S:"La communication DQVCT manquait de cohérence : bibliothèque de marque difficile à exploiter, visuels hors-charte, re-chartage manuel permanent.",
+  T:"Concevoir un système visuel chartré pour toutes les divisions, et non un visuel isolé, puis le faire valider et déployer.",
+  A:"Cadrage du besoin et brainstorms par division · brief à la division Communication et à la Brand Factory · direction artistique (photos humaines, regard salarié, tag line par service) · réunions de pilotage et présentation direction menée seul.",
+  R:"<b>1 image héro stable par division</b>, un kit complet 100 % chartré et une bibliothèque de supports accessible à tous, livré en <b>~6 mois de pilotage solo</b>."},
+ en:{t:"Orange · QVCT visual system & library",
+  d:"A fully on-brand image system for the whole DQVCT. Piloted solo, end to end.",
+  tags:["Branding","Strategy","Graphic design"],
+  S:"DQVCT communication lacked consistency: a brand library hard to search, off-brand visuals, constant manual re-branding.",
+  T:"Design a brand-compliant visual system for every division, not a one-off visual, then get it validated and deployed.",
+  A:"Need framing and per-division brainstorms · brief to the Communication division and the Brand Factory · art direction (human photography, employee-first tone, one tagline per service) · steering meetings and final board presentation led alone.",
+  R:"<b>1 stable hero image per division</b>, a fully on-brand kit and a support library open to all, delivered in <b>~6 months of solo management</b>."}},
+
+{slug:"orange-sst",img:"assets/img/sst.jpg",gal:["assets/img/sst-g1.jpg","assets/img/sst-g2.jpg"],
+ stack:["Viva Engage","Anoo","PowerPoint","Canva","IA Dinootoo"],
+ fr:{t:"Orange · Campagne Service Social du Travail",
+  d:"Déstigmatiser l'assistant social et fluidifier la prise de rendez-vous.",
+  tags:["Communication","Stratégie","Coordination"],
+  S:"Aller voir une assistante sociale était perçu comme un aveu de faiblesse, et retrouver son AST était difficile. Double friction : perception et accès.",
+  T:"Porter la campagne avec ma collègue Florence : changer le regard des salariés et simplifier le passage à l'acte.",
+  A:"Messages par persona (salariés, managers, RH, préventeurs) · lancement de la communauté Viva Engage des aidants · supports incarnés (BD, affiches, Essentiels) · cadrage, tests et brief du volet IA Dinootoo pour trouver son AST, portés à deux.",
+  R:"<b>98 % de satisfaction</b> sur les ateliers, <b>+500 inscrits</b>, communauté à <b>433 membres</b> dès le pilote, et un accès à l'AST en deux clics via l'IA interne."},
+ en:{t:"Orange · Occupational Social Service campaign",
+  d:"De-stigmatise the social worker and streamline appointment-taking.",
+  tags:["Communication","Strategy","Coordination"],
+  S:"Seeing a social worker was perceived as an admission of weakness, and finding your assigned social worker was hard. A double friction: perception and access.",
+  T:"Carry the campaign together with my colleague Florence: change how employees see the service and simplify taking action.",
+  A:"Per-persona messaging (employees, managers, HR, prevention teams) · launch of the caregivers' Viva Engage community · embodied assets (comics, posters, Essentials) · framing, testing and briefing of the Dinootoo AI feature to find one's social worker, driven as a duo.",
+  R:"<b>98% satisfaction</b> on workshops, <b>500+ sign-ups</b>, a <b>433-member</b> community from the pilot, and two-click access to one's social worker through the internal AI."}},
+
+{slug:"orange-roadmap",img:"assets/img/roadmap.jpg",gal:["assets/img/roadmap-g1.jpg","assets/img/roadmap-g2.jpg"],
+ stack:["PowerPoint","SharePoint","Anoo","Canva"],
+ fr:{t:"Orange · Roadmap communication QVCT 2026",
+  d:"Le calendrier éditorial annuel santé & qualité de vie au travail, multi-canaux.",
+  tags:["Coordination","Communication"],
+  S:"Les temps forts santé/QVCT (SQVT, Octobre rose, Movember, préventions saisonnières…) exigeaient une orchestration annuelle cohérente sur tous les canaux internes.",
+  T:"Coordonner la roadmap avec ma manager Gwenaëlle (validation) et produire les supports avec l'équipe.",
+  A:"Cadrage des besoins des acteurs QVCT/SST · construction du calendrier éditorial annuel · production multi-supports : leaflets, affiches print & digitales, signatures mail, newsletters, pages Anoo et SharePoint.",
+  R:"<b>11 mois de temps forts orchestrés</b>, <b>5+ canaux couverts</b>, un système visuel itéré sur <b>45+ versions</b>, 100 % conforme charte."},
+ en:{t:"Orange · QVCT 2026 communication roadmap",
+  d:"The annual health & quality-of-worklife editorial calendar, across channels.",
+  tags:["Coordination","Communication"],
+  S:"Health/QVCT highlights (QWL Week, Pink October, Movember, seasonal prevention…) required consistent year-round orchestration across all internal channels.",
+  T:"Coordinate the roadmap with my manager Gwenaëlle (validation) and produce the assets with the team.",
+  A:"Framed QVCT/SST stakeholders' needs · built the annual editorial calendar · produced multi-format assets: leaflets, print & digital posters, mail signatures, newsletters, Anoo and SharePoint pages.",
+  R:"<b>11 months of highlights orchestrated</b>, <b>5+ channels covered</b>, a visual system iterated over <b>45+ versions</b>, 100% on-brand."}},
+
+{slug:"comet-meetings",img:"assets/img/comet.jpg",gal:["assets/img/comet-g1.jpg"],
+ stack:["Suite Adobe","Figma","Charte de marque"],
+ fr:{t:"Comet Meetings · Rebranding international",
+  d:"Brand design d'une refonte révélée puis déployée sur 10 lieux, entre Paris, Madrid et Bruxelles.",
+  tags:["Branding","Graphisme","Direction artistique"],
+  S:"Comet Meetings, acteur de l'hospitalité de réunion, faisait évoluer son identité. Une nouvelle charte de marque à révéler, puis à déployer sur <b>10 lieux</b> : 8 sites à Paris, 1 à Madrid et 1 à Bruxelles.",
+  T:"En tant que Brand Designer (janvier à juin 2023), diriger la refonte avec l'équipe : être responsable de sa mise en œuvre et de sa révélation sur tous les points de contact.",
+  A:"Adaptation de tous les supports de marque des lieux à la nouvelle charte · sélection des goodies et des shootings de la nouvelle banque d'images, avec supervision de leur conception · recréation des supports réseaux sociaux · nouvelle direction artistique des cartes de visite, guidée par un audit RSE de l'utilisation des ressources · conception des newsletters et signatures email.",
+  R:"<b>Identité déployée sur 10 lieux dans 3 pays</b> : banque d'images renouvelée, supports print, digital et réseaux sociaux 100 % à la nouvelle charte, dans le budget dédié à la refonte."},
+ en:{t:"Comet Meetings · International rebranding",
+  d:"Brand design for a rebrand revealed then rolled out across 10 venues in Paris, Madrid and Brussels.",
+  tags:["Branding","Graphic design","Art direction"],
+  S:"Comet Meetings, a meeting-hospitality player, was evolving its identity. A new brand system to reveal, then roll out across <b>10 venues</b>: 8 in Paris, 1 in Madrid and 1 in Brussels.",
+  T:"As Brand Designer (January to June 2023), lead the rebrand with the team: own its implementation and its reveal across every touchpoint.",
+  A:"Adapted all venue brand assets to the new guidelines · selected the goodies and photo shoots for the new image bank and supervised their production · recreated the social media assets · new art direction for business cards, guided by a CSR audit of resource usage · designed the newsletters and email signatures.",
+  R:"<b>Identity deployed across 10 venues in 3 countries</b>: a renewed image bank and print, digital and social assets 100% on-brand, within the rebrand budget."}},
+
+{slug:"novu-ai",img:"assets/img/novu.jpg",gal:["assets/img/novu-g1.jpg"],
+ stack:["Figma","WordPress","Illustration"],
+ fr:{t:"Novu AI · Site web, direction UX/UI",
+  d:"Diriger une équipe UX/UI pour le site d'une healthtech IA, pensé pour deux publics.",
+  tags:["UI/UX","Direction artistique","Coordination"],
+  S:"Novu AI, healthtech spécialisée en IA médicale, refondait son site vitrine (avril 2024). Un sujet technique, souvent noyé sous le texte chez les concurrents, à rendre simple et engageant.",
+  T:"Diriger l'équipe de conception UX/UI : piloter la direction artistique, superviser la conception et collaborer étroitement avec l'équipe de développement.",
+  A:"Page d'accueil à double orientation (médecins d'un côté, développeurs IA de l'autre) · navigation simplifiée et illustrations ludiques pour rendre le sujet accessible · conception sur Figma · développement WordPress avec code personnalisé pour une cohérence parfaite entre design et fonctionnalité.",
+  R:"Une interface <b>innovante et immersive</b> livrée pour le lancement, et une <b>cohérence visuelle garantie sur tous les supports</b>. Site en phase de déploiement."},
+ en:{t:"Novu AI · Website, UX/UI lead",
+  d:"Leading a UX/UI team on an AI healthtech website, designed for two audiences.",
+  tags:["UI/UX","Art direction","Coordination"],
+  S:"Novu AI, a healthtech specialised in medical AI, was rebuilding its website (April 2024). A technical subject, often drowned in text at competitors, to make simple and engaging.",
+  T:"Lead the UX/UI design team: drive the art direction, supervise the design and work hand in hand with the development team.",
+  A:"A dual-audience homepage (physicians on one side, AI developers on the other) · simplified navigation and playful illustrations to make the subject accessible · designed in Figma · WordPress build with custom code for perfect design-to-function consistency.",
+  R:"An <b>innovative, immersive interface</b> delivered for launch, with <b>visual consistency guaranteed across every asset</b>. Site now rolling out."}},
+
+{slug:"paris-insider",img:"assets/img/insider.jpg",gal:[],
+ stack:["Montage vidéo","Micro-trottoirs","Réseaux sociaux"],
+ fr:{t:"Paris Insider · Contenus social media",
+  d:"Montage vidéo et micro-trottoirs pour une agence spécialisée en social media.",
+  tags:["Communication","Vidéo","Réseaux sociaux"],
+  S:"Paris Insider, agence spécialisée en social media (mars 2024), produit des formats courts à haute fréquence pour les réseaux sociaux.",
+  T:"Cadrer et produire des contenus dynamiques qui renforcent la présence en ligne et l'engagement des audiences, du tournage à la publication.",
+  A:"Réalisation de micro-trottoirs dans Paris · montage vidéo des formats courts · adaptation des contenus aux codes et aux attentes de chaque plateforme.",
+  R:"Des contenus publiés qui ont <b>renforcé la présence en ligne et l'engagement des audiences</b>, et une maîtrise consolidée des outils de création visuelle, plateforme par plateforme."},
+ en:{t:"Paris Insider · Social media content",
+  d:"Video editing and street interviews for a social-media agency.",
+  tags:["Communication","Video","Social media"],
+  S:"Paris Insider, an agency specialised in social media (March 2024), produces high-frequency short-form content for social platforms.",
+  T:"Frame and produce dynamic content that strengthens online presence and audience engagement, from shoot to publication.",
+  A:"Shot street interviews across Paris · edited the short-form videos · tailored content to each platform's codes and audience expectations.",
+  R:"Published content that <b>strengthened online presence and audience engagement</b>, and sharpened visual-creation skills, platform by platform."}},
+
+{slug:"karl-kani-ux",img:"assets/img/karlkani-cover.jpg",gal:["assets/img/karlkani-actuel.jpg","assets/img/karlkani-proposition.jpg","assets/img/karlkani-audit.svg","assets/img/karlkani-proposals.svg"],
+ stack:["Audit UX","Wireframes","Benchmark"],
+ fr:{t:"Karl Kani · Refonte UX de la home page",
+  d:"Projet d'étude : audit de la page d'accueil et 10 propositions alignées sur les codes du luxe.",
+  tags:["UI/UX","Étude de cas","Web"],
+  S:"Projet d'étude sur le site de Karl Kani, marque de streetwear iconique. La home page actuelle dessert l'image : images plein écran encombrantes et non cliquables, texte peu lisible, boutons trop petits, recherche à deux clics.",
+  T:"Auditer la page d'accueil en chef de projet UX : identifier les frictions, les hiérarchiser, puis cadrer une proposition de refonte fidèle à l'esthétique luxueuse et minimaliste de la marque.",
+  A:"Audit en 7 constats : recherche à 2 clics · images plein écran, plus grandes que l'écran et non cliquables · lisibilité compromise · attribution des visuels floue · boutons sous-dimensionnés · défauts répétés jusqu'au footer. Puis 10 propositions : logo mis en valeur et texte réduit · recherche simplifiée · marges latérales · carrousel pour la dernière collection · contexte pour chaque élément · images carrées sans arrondis · visuels cliquables avec boutons discrets · collection précédente montrée · accès directs Homme/Femme · newsletter.",
+  R:"Une proposition de refonte complète et argumentée, du constat au wireframe : une home épurée, conforme aux codes du luxe, pensée pour <b>guider le visiteur et convertir</b>."},
+ en:{t:"Karl Kani · Homepage UX redesign",
+  d:"Case study: a homepage audit and 10 proposals aligned with luxury codes.",
+  tags:["UI/UX","Case study","Web"],
+  S:"A self-initiated study of the Karl Kani website, the iconic streetwear brand. The current homepage undersells the image: cluttered, unclickable full-screen images, hard-to-read text, undersized buttons, a two-click search.",
+  T:"Audit the homepage as a UX project lead: identify the frictions, prioritise them, then frame a redesign proposal true to the brand's luxury, minimalist aesthetic.",
+  A:"A 7-point audit: two-click search · full-screen images, larger than the viewport and not clickable · compromised readability · unclear image attribution · undersized buttons · the same flaws repeated down to the footer. Then 10 proposals: a showcased logo with less text · simplified search · side margins · a carousel for the latest collection · context for every element · square, sharp-cornered images · clickable visuals with discreet buttons · the previous collection shown, not just named · direct Men/Women access · a newsletter.",
+  R:"A complete, argued redesign proposal, from findings to wireframe: a clean homepage, true to luxury codes, built to <b>guide the visitor and convert</b>."}},
+
+{slug:"mjccs",img:"assets/img/mjccs.jpg",gal:["assets/img/mjccs-g1.jpg"],
+ stack:["Illustrator","Print"],
+ fr:{t:"MJCCS · Affiches & flyers des 20 ans",
+  d:"La création print des 20 ans de l'association : affiches A2/A3 et flyers double face.",
+  tags:["Graphisme","Print","Communication"],
+  S:"L'association MJCCS (maison des jeunes et de la culture, centre social de Saint-Lys) fêtait ses 20 ans le 15 juin 2024 : un événement gratuit et ouvert à tous, à annoncer largement.",
+  T:"Piloter la création des supports print de l'événement (mai 2024) : cadrage du besoin avec l'association, conception des affiches et flyers, livraison conforme aux spécifications.",
+  A:"Création sur Illustrator · affiches déclinées en plusieurs formats (A2/A3) · flyers double face avec le programme complet de la journée · univers visuel festif décliné de façon cohérente sur tous les livrables.",
+  R:"Des livrables <b>conformes aux spécifications demandées</b> et une qualité visuelle cohérente sur tous les supports de l'anniversaire : affiches en ville, programme en main."},
+ en:{t:"MJCCS · 20th-anniversary posters & flyers",
+  d:"Print design for the association's 20th anniversary: A2/A3 posters and two-sided flyers.",
+  tags:["Graphic design","Print","Communication"],
+  S:"The MJCCS association (youth & culture centre, Saint-Lys) celebrated its 20th anniversary on 15 June 2024: a free, open-to-all event to announce widely.",
+  T:"Manage the event's print production (May 2024): scope the need with the association, design the posters and flyers, deliver to specification.",
+  A:"Designed in Illustrator · posters declined in several formats (A2/A3) · two-sided flyers carrying the full day's programme · a festive visual world applied consistently across deliverables.",
+  R:"Deliverables <b>matching the requested specifications</b> and a consistent visual quality across all the anniversary assets: posters in the street, programme in hand."}},
+
+{slug:"sultane-de-saba",img:"assets/img/sultane.jpg",gal:["assets/img/sultane-g1.jpg"],
+ stack:["Photoshop","Premiere Pro","Instagram"],
+ fr:{t:"La Sultane de Saba · Graphisme & contenus",
+  d:"Shootings, réseaux sociaux et projets hôteliers de luxe pour la marque de cosmétiques.",
+  tags:["Graphisme","Communication","Vidéo"],
+  S:"La Sultane de Saba, marque de cosmétiques et de parfums, alimente sa communication BtoC et BtoB et développe des partenariats avec des hôtels de luxe.",
+  T:"Au sein de la marque (avril à juillet 2023), produire les contenus visuels et coordonner les livrables des projets partenaires, de l'hôtellerie de luxe au retail.",
+  A:"Shootings photo/vidéo, dérushage et retouche (Photoshop, Premiere Pro) · stories et reels Instagram pour chaque gamme de parfums · offres BtoB · visuels de communication pour l'hôtel Cheval Blanc Paris · flacons à l'image des Bains du Marais · modifications des plans 3D du nouveau Riad de formation, en lien avec une architecte de La Mamounia (Marrakech).",
+  R:"Des contenus livrés sur <b>tous les canaux de la marque</b> : Instagram BtoC, offres BtoB et partenariats hôteliers de luxe (Cheval Blanc, Bains du Marais, La Mamounia)."},
+ en:{t:"La Sultane de Saba · Design & content",
+  d:"Photo shoots, social media and luxury-hotel projects for the cosmetics brand.",
+  tags:["Graphic design","Communication","Video"],
+  S:"La Sultane de Saba, a cosmetics and fragrance brand, feeds BtoC and BtoB communication and grows partnerships with luxury hotels.",
+  T:"Inside the brand (April to July 2023), produce the visual content and coordinate partner-project deliverables, from luxury hotels to retail.",
+  A:"Photo/video shoots, footage sorting and retouching (Photoshop, Premiere Pro) · Instagram stories and reels for every fragrance range · BtoB offers · communication visuals for the Cheval Blanc Paris hotel · bottles designed for Les Bains du Marais · 3D-plan edits for the new training Riad, alongside an architect from La Mamounia (Marrakech).",
+  R:"Content delivered across <b>every brand channel</b>: BtoC Instagram, BtoB offers and luxury-hotel partnerships (Cheval Blanc, Bains du Marais, La Mamounia)."}},
+
+{slug:"konectsport",img:"assets/img/konect.jpg",gal:["assets/img/konect-g1.jpg"],
+ stack:["Design d'app","Charte graphique","Réseaux sociaux"],
+ fr:{t:"Konectsport · L'app qui connecte les sportifs",
+  d:"Identité, charte graphique et maquettes d'une app de mise en relation entre sportifs.",
+  tags:["UI/UX","Branding","Application"],
+  S:"À l'origine : la solitude sportive. Trouver un partenaire de tennis quand ses amis ne partagent pas cette passion, oser pratiquer seul, s'aligner avec d'autres joueurs : un vrai frein pour les passionnés.",
+  T:"Piloter le projet de bout en bout sur deux ans (avril 2021 à juin 2023) : identité de marque, charte graphique, maquettes de l'application et communication.",
+  A:"Logo et charte complète (couleurs, typographies, iconographie, éléments graphiques) · quizz intelligent qui analyse les préférences sportives pour connecter des partenaires idéaux · maquettes de l'app en dark mode · communication visuelle Instagram · périmètre : 4 familles de sports collectifs de balles (basketball, football/futsal/five, handball, jeux de raquettes).",
+  R:"Une identité et une application maquettées de A à Z sur <b>2 ans de projet</b>, prêtes à connecter basketteurs, footballeurs, handballeurs et joueurs de raquettes."},
+ en:{t:"Konectsport · The app that connects athletes",
+  d:"Identity, brand guidelines and mockups for a sports matchmaking app.",
+  tags:["UI/UX","Branding","App"],
+  S:"It started with sporting loneliness: finding a tennis partner when your friends don't share the passion, daring to play alone, matching with other players: a real barrier for enthusiasts.",
+  T:"Drive the project end to end over two years (April 2021 to June 2023): brand identity, guidelines, app mockups and communication.",
+  A:"Logo and full guidelines (colours, type, iconography, graphic elements) · a smart quiz analysing sport preferences to match ideal partners · dark-mode app mockups · Instagram visual communication · scope: 4 ball-sport families (basketball, football/futsal/five, handball, racket sports).",
+  R:"An identity and an app designed end to end over <b>2 years</b>, ready to connect basketball, football, handball and racket-sport players."}},
+
+{slug:"handisport",img:"assets/img/handisport.jpg",gal:["assets/img/handisport-g1.jpg"],
+ stack:["Illustrator","Photoshop","Print"],
+ fr:{t:"Handisport · Campagne « Roule ta bosse »",
+  d:"Deux campagnes pour promouvoir l'handisport, avec humour et positivité.",
+  tags:["Communication","Direction artistique","Graphisme"],
+  S:"Promouvoir l'handisport (octobre 2022) sans tomber dans le pathos : un sujet souvent traité avec trop de sérieux, au lieu d'être perçu comme une norme.",
+  T:"Diriger la conception des deux campagnes : une print pour encourager les personnes en situation de handicap à faire du sport en brisant les stéréotypes, une photographique pour inviter les personnes valides à pratiquer à leurs côtés.",
+  A:"Stratégie portée par le hashtag « Roule ta bosse », « rouler » pour le fauteuil comme pour la vie aventureuse · affiches illustrées pleines d'humour (« Les Handi-capés », « Tape m'en cinq », « Il n'a pas perdu la main ») · logo Pantone et déclinaisons secondaires · déploiement en abribus, écrans et roll-ups.",
+  R:"Une campagne <b>joyeuse et décomplexée</b> qui dédramatise le sujet, avec un message clair : même en situation de handicap, l'aventure ne s'arrête jamais."},
+ en:{t:"Handisport · “Roule ta bosse” campaign",
+  d:"Two campaigns promoting para-sport, with humour and positivity.",
+  tags:["Communication","Art direction","Graphic design"],
+  S:"Promote para-sport (October 2022) without pathos: a subject too often treated over-seriously, instead of being seen as the norm.",
+  T:"Lead the design of both campaigns: a print one encouraging people with disabilities to play sport while breaking stereotypes, and a photographic one inviting able-bodied people to play alongside them.",
+  A:"A strategy built on the “Roule ta bosse” hashtag, “rolling” for the wheelchair as much as for an adventurous life · humour-filled illustrated posters (“Les Handi-capés”, “Tape m'en cinq”, “Il n'a pas perdu la main”) · Pantone logo and secondary versions · rolled out on bus shelters, screens and roll-ups.",
+  R:"A <b>joyful, unapologetic campaign</b> that de-dramatises the subject, with one clear message: even with a disability, the adventure never stops."}},
+
+{slug:"starkie",img:"assets/img/starkie.jpg",gal:["assets/img/starkie-g1.jpg"],
+ stack:["Illustration","Web design","Charte graphique"],
+ fr:{t:"Starkie · Voyage interplanétaire",
+  d:"Illustrations et mise en page d'un site futuriste de réservation de voyages spatiaux.",
+  tags:["Illustration","UI/UX","Web"],
+  S:"Un projet futuriste (mai 2022) : un site de réservation de voyages interplanétaires, conçu puis développé au sein d'une équipe de développeurs.",
+  T:"Porter la partie design au sein de l'équipe : créer les illustrations, assurer la mise en page et coordonner l'harmonie entre créations et développement.",
+  A:"Deux destinations « réalisables » retenues, Mars et la Lune · approche visuellement illustrée du site · charte graphique (couleurs, typographie Montserrat, logo fusée) · illustrations du système solaire et des pages Voyage.",
+  R:"Des maquettes <b>livrées et développées en équipe</b>, avec un univers illustré cohérent, de la charte jusqu'aux pages du site."},
+ en:{t:"Starkie · Interplanetary travel",
+  d:"Illustrations and layout for a futuristic space-travel booking site.",
+  tags:["Illustration","UI/UX","Web"],
+  S:"A futuristic project (May 2022): an interplanetary travel booking site, designed then built within a team of developers.",
+  T:"Own the design track within the team: create the illustrations, run the layout and keep artwork and development in step.",
+  A:"Two “feasible” destinations selected, Mars and the Moon · a visually illustrated approach to the site · brand guidelines (colours, Montserrat type, rocket logo) · solar-system and Voyage-page illustrations.",
+  R:"Mockups <b>delivered and developed as a team</b>, with a consistent illustrated world from the guidelines down to every page."}},
+
+{slug:"vincero",img:"assets/img/vincero.jpg",gal:[],
+ stack:["Premiere Pro","Montage vidéo"],
+ fr:{t:"Vincero · Publicité vidéo",
+  d:"Une pub d'une minute qui raconte une histoire, du tri des rushs au montage final.",
+  tags:["Vidéo","Montage","Storytelling"],
+  S:"Concevoir pour la marque de montres Vincero (avril 2022) une publicité captivante qui raconte une histoire, en harmonisant la bande-son, le tout en une minute.",
+  T:"Mener la production de bout en bout : brief créatif, sélection des séquences, montage et livraison de ma propre version de l'histoire.",
+  A:"Tri des rushs et sélection des séquences · montage sur Premiere Pro · fusion d'une musique, d'une piste instrumentale et de la bande-son · sous-titres, l'audio étant en anglais.",
+  R:"Une publicité d'<b>une minute</b>, montée et publiée, à retrouver sur mon Instagram pro @tl12_design."},
+ en:{t:"Vincero · Video ad",
+  d:"A one-minute ad that tells a story, from rush sorting to final cut.",
+  tags:["Video","Editing","Storytelling"],
+  S:"For watch brand Vincero (April 2022): craft a captivating ad that tells a story, with a fully harmonised soundtrack, all within one minute.",
+  T:"Run the production end to end: creative brief, footage selection, edit and delivery of my own version of the story.",
+  A:"Sorted the rushes and picked the sequences · edited in Premiere Pro · blended a music track, an instrumental layer and the voice track · subtitles, as the audio was in English.",
+  R:"A <b>one-minute ad</b>, cut and published, watch it on my pro Instagram @tl12_design."}},
+
+{slug:"culturama",img:"assets/img/culturama.jpg",gal:["assets/img/culturama-g1.jpg"],
+ stack:["Charte graphique","Illustration","Maquettes web"],
+ fr:{t:"Culturama · La culture en direct",
+  d:"Identité et site de streaming culturel imaginés pendant la crise sanitaire.",
+  tags:["Branding","Web","Illustration"],
+  S:"Mars 2022, suite à la demande du ministre de la Culture : un site dédié à la culture pour que les Français puissent continuer à se cultiver malgré la crise sanitaire.",
+  T:"Cadrer et concevoir le site et son identité : un univers ludique, fun et qui donne envie, tout en restant sérieux.",
+  A:"Logo et charte (couleurs sobres en principal, touches vives pour donner de la joie au site) · diffusions en direct (dessin, flûte, mathématiques, français) et replays dans la section éducation · retransmissions de spectacles et concerts dans la section culture · illustrations sur mesure · affiche publicitaire, posts Instagram et maquettes desktop/mobile.",
+  R:"Un service complet maquetté : <b>lives, replays et retransmissions culturelles</b>, avec une identité déclinée du logo jusqu'à l'affiche publicitaire."},
+ en:{t:"Culturama · Culture, live",
+  d:"Identity and cultural streaming site imagined during the health crisis.",
+  tags:["Branding","Web","Illustration"],
+  S:"March 2022, following a request from the Ministry of Culture: a site dedicated to culture so French people could keep learning despite the health crisis.",
+  T:"Frame and design the site and its identity: a playful, fun, inviting world, while staying serious.",
+  A:"Logo and guidelines (sober main colours, vivid accents to bring the site joy) · live streams (drawing, flute, maths, French) with replays in the education section · live broadcasts of shows and concerts in the culture section · custom illustrations · an advertising poster, Instagram posts and desktop/mobile mockups.",
+  R:"A fully mocked-up service: <b>live sessions, replays and cultural broadcasts</b>, with an identity declined from the logo to the street poster."}},
+
+{slug:"sap-transformation",img:"assets/img/sap.jpg",gal:["assets/img/sap-g1.jpg","assets/img/sap-g2.jpg"],
+ stack:["SAP","Cartographie de processus","Business case"],
+ fr:{t:"SAP · Transformation digitale des ventes",
+  d:"Chef de projet : cartographie des processus, business case et déploiement SAP pour la direction marketing et commerciale.",
+  tags:["Gestion de projet","Transformation digitale","Stratégie"],
+  S:"Des commandes B2B standard et sur-mesure qui vivent sur WhatsApp, Excel et Post-it : qualification manuelle (10 à 20 % de demandes perdues), stocks vérifiés par téléphone sans réservation, grilles de prix obsolètes, fiches navettes papier.",
+  T:"En chef de projet orienté transformation digitale (équipe de 4), cartographier l'existant, chiffrer les pertes et cadrer le déploiement de l'ERP SAP pour la direction marketing et commerciale.",
+  A:"Cartographie as-is des deux parcours de commande (standard et sur-mesure) · pain points et pertes chiffrés par métier · processus cibles sous SAP : saisie sur tablette, tarification exacte, analyse de solvabilité automatisée, ordre de fabrication déclenché par l'acompte, suivi de production scanné en temps réel · business case financier · gouvernance à quatre niveaux · roadmap 2026-2027 et arguments pour le comité d'entreprise.",
+  R:"Un projet <b>rentable en moins d'un an</b> : 700 k€ de coûts sur 3 ans pour un <b>ROI de 129 %</b> (899 k€ de résultat), et un scénario prudent qui reste rentable à 60 %."},
+ en:{t:"SAP · Digital transformation of sales",
+  d:"Project manager: process mapping, business case and SAP rollout for the marketing and sales direction.",
+  tags:["Project management","Digital transformation","Strategy"],
+  S:"Standard and custom B2B orders living on WhatsApp, Excel and Post-its: manual qualification (10 to 20% of requests lost), stock checked by phone with no reservation, outdated price grids, paper worksheets.",
+  T:"As a digital-transformation project manager (team of 4), map the as-is, quantify the losses and frame the SAP ERP rollout for the marketing and sales direction.",
+  A:"As-is mapping of both order journeys (standard and custom) · pain points and losses quantified per role · target processes on SAP: tablet entry, exact pricing, automated solvency checks, production order triggered by the deposit, real-time scanned production tracking · financial business case · four-level governance · 2026-2027 roadmap and works-council arguments.",
+  R:"A project <b>profitable in under a year</b>: €700k of costs over 3 years for a <b>129% ROI</b> (€899k net result), with a conservative scenario still profitable at 60%."}},
+
+{slug:"estatesync",img:"assets/img/estatesync.jpg",gal:["assets/img/estatesync-g1.jpg","assets/img/estatesync-g2.jpg"],
+ stack:["Stratégie produit","IA","Go-to-market"],
+ fr:{t:"EstateSync · IA pour la gestion locative",
+  d:"CEO (certificat HEC) : l'orchestration IA de la maintenance immobilière, du signalement à la clôture.",
+  tags:["Entrepreneuriat","Stratégie","Produit"],
+  S:"Un gestionnaire immobilier perd environ 16 heures par mois à coordonner la maintenance : 40 tickets mensuels, 25 à 40 minutes chacun, triés à la main entre SMS, WhatsApp, téléphone et Excel.",
+  T:"En CEO (équipe de 4, certificat HEC Digital Entrepreneur), porter la stratégie produit et le go-to-market d'EstateSync : l'IA coordonne, le gestionnaire décide.",
+  A:"Étude terrain (6 entretiens, méthodologie Mom Test) · parcours conçu de bout en bout : ticket lu, classé et dispatché par l'IA, validation en un clic, artisan confirmé par SMS · prototype du dashboard gestionnaire · pricing SaaS au lot (1 €/lot/mois) · marché dimensionné (TAM 20 à 30 M€) · roadmap en 3 phases et pitch investisseurs pour 250 k€ en pre-seed.",
+  R:"Un pitch final complet, prototype à l'appui : <b>16 heures rendues par gestionnaire et par mois</b>, retour sur investissement client en moins de 60 jours via les mandats absorbés, LTV/CAC supérieur à 25."},
+ en:{t:"EstateSync · AI for property management",
+  d:"CEO (HEC certificate): AI orchestration of building maintenance, from report to closure.",
+  tags:["Entrepreneurship","Strategy","Product"],
+  S:"A property manager loses about 16 hours a month coordinating maintenance: 40 tickets a month, 25 to 40 minutes each, triaged by hand across SMS, WhatsApp, phone and Excel.",
+  T:"As CEO (team of 4, HEC Digital Entrepreneur certificate), own the product strategy and go-to-market of EstateSync: AI coordinates, the manager decides.",
+  A:"Field study (6 interviews, Mom Test methodology) · end-to-end journey: ticket read, classified and dispatched by AI, one-click validation, contractor confirmed by SMS · manager dashboard prototype · per-lot SaaS pricing (€1/lot/month) · market sized (€20 to 30M TAM) · 3-phase roadmap and investor pitch for a €250k pre-seed.",
+  R:"A complete final pitch, prototype included: <b>16 hours given back per manager per month</b>, customer payback in under 60 days through absorbed mandates, LTV/CAC above 25."}},
+
+{slug:"cribbz-pro",img:"assets/img/cribbz.jpg",gal:["assets/img/cribbz-g1.jpg","assets/img/cribbz-g2.jpg"],
+ stack:["Produit","UI/UX","Branding"],
+ fr:{t:"Cribbz Pro · Suite de gestion immobilière",
+  d:"Co-fondateur : une suite tout-en-un pour publier, louer et piloter un portefeuille de biens.",
+  tags:["Produit","UI/UX","Entrepreneuriat"],
+  S:"73 % des professionnels de l'immobilier jonglent avec 3 outils ou plus : 18 heures par mois de tâches administratives, 40 % des leads perdus faute de réponse rapide, un tiers des annonces sans suivi de performance.",
+  T:"En co-fondateur et Chief Brand Officer de Cribbz, cadrer et piloter la conception de Cribbz Pro : tout le métier, au même endroit.",
+  A:"Suite structurée en 6 modules : dashboard, annonces, performance, messagerie, statistiques, facturation · maquettes du dashboard pro et de l'app grand public (les « cribbers ») · identité, direction artistique et dossier de présentation 2026.",
+  R:"Une suite maquettée de bout en bout, du constat chiffré au produit : <b>6 modules, un seul outil</b>, prête à être présentée aux agences."},
+ en:{t:"Cribbz Pro · Property management suite",
+  d:"Co-founder: an all-in-one suite to publish, rent and manage a property portfolio.",
+  tags:["Product","UI/UX","Entrepreneurship"],
+  S:"73% of real estate professionals juggle 3 tools or more: 18 hours a month of admin tasks, 40% of leads lost for lack of a fast answer, a third of listings with no real performance tracking.",
+  T:"As co-founder and Chief Brand Officer of Cribbz, frame and drive the design of Cribbz Pro: the whole business, in one place.",
+  A:"A suite structured in 6 modules: dashboard, listings, performance, messaging, statistics, billing · mockups of the pro dashboard and of the consumer app (the « cribbers ») · identity, art direction and the 2026 presentation deck.",
+  R:"A suite designed end to end, from quantified problem to product: <b>6 modules, one tool</b>, ready to be shown to agencies."}},
+
+{slug:"remap",img:"assets/img/remap.jpg",gal:["assets/img/remap-g1.jpg","assets/img/remap-g2.jpg"],
+ stack:["Figma","Design system","UX research"],
+ fr:{t:"ReMap · Le quartier qui veille sur toi",
+  d:"Hackathon UX/UI 2026 : une app d'entraide de quartier, de l'idée au design system complet.",
+  tags:["UI/UX","Design system","Coordination"],
+  S:"En 2030, 68 % de la population mondiale vivra en ville. Encombrants abandonnés, logements invivables en canicule ou grand froid, personnes isolées sans filet de voisinage : dans nos quartiers, on traverse les crises seuls.",
+  T:"En hackathon UX/UI (équipe de 5), concevoir ReMap, l'écologie par l'entraide : connecter les voisins autour de deux urgences du quotidien.",
+  A:"6 fonctionnalités dont la signature, le check-in communautaire (escalade douce en 4 étapes jusqu'au SOS) · carte des encombrants, alerte confort logement, partage solidaire, gamification verte, impact écologique · personas et cas d'usage (canicule, grand froid, crise) · RGPD privacy by design · design system complet : contraste AAA, cibles 48 px, typographie Poppins, composants.",
+  R:"Un concept abouti, maquettes et design system à l'appui : <b>« le système nerveux humain du quartier »</b>, sombre, lisible et accessible à tous les âges."},
+ en:{t:"ReMap · The neighbourhood that looks after you",
+  d:"UX/UI hackathon 2026: a neighbourhood mutual-aid app, from idea to full design system.",
+  tags:["UI/UX","Design system","Coordination"],
+  S:"By 2030, 68% of the world's population will live in cities. Abandoned bulky waste, homes unlivable in heatwaves or cold snaps, isolated people with no neighbourhood safety net: we go through crises alone.",
+  T:"At a UX/UI hackathon (team of 5), design ReMap, ecology through mutual aid: connect neighbours around two everyday emergencies.",
+  A:"6 features including the signature community check-in (gentle 4-step escalation up to SOS) · bulky-waste map, home-comfort alerts, solidarity sharing, green gamification, ecological impact · personas and use cases (heatwave, cold snap, crisis) · GDPR privacy by design · full design system: AAA contrast, 48 px targets, Poppins type, components.",
+  R:"A polished concept, mockups and design system included: <b>« the neighbourhood's human nervous system »</b>, dark, readable and accessible to all ages."}},
+
+{slug:"wedd",img:"assets/img/wedd.jpg",gal:["assets/img/wedd-g1.jpg","assets/img/wedd-g2.jpg"],
+ stack:["Événementiel","Réseaux sociaux","Direction artistique"],
+ fr:{t:"WeDD · We Don't Date, événements musicaux",
+  d:"Co-fondateur : pilotage opérationnel et budgétaire d'événements afro en banlieue.",
+  tags:["Coordination","Communication","Entrepreneuriat"],
+  S:"WeDD (We Don't Date) est une association d'événements musicaux pour les minorités de la musique, en banlieue : de vrais événements afro, amapiano et rap où l'on vient comme on est, sans devoir monter sur Paris pour retrouver sa communauté.",
+  T:"En co-fondateur, assurer le pilotage opérationnel et budgétaire des projets événementiels, la stratégie de communication multicanale et l'image de marque.",
+  A:"Identité : un logo rond aux couleurs dynamiques, lettres en mouvement pour la liberté · événements marquants : « Fuck Valentine » (célébrer le fait de s'être choisi soi-même, avec ADIS, prévention en santé sexuelle) et « Summer is coming » (vêtements d'été antillais et west-af à l'honneur) · stories et posts réseaux sociaux, billetterie Shotgun, direction artistique des supports.",
+  R:"Des événements <b>pilotés de bout en bout</b>, une communauté qui se retrouve près de chez elle, et une partie des fonds reversée à l'association partenaire AMFD Île-de-France."},
+ en:{t:"WeDD · We Don't Date, music events",
+  d:"Co-founder: operational and budget management of afro music events in the suburbs.",
+  tags:["Coordination","Communication","Entrepreneurship"],
+  S:"WeDD (We Don't Date) is a music-events association for minorities in music, in the Paris suburbs: real afro, amapiano and rap events where you come as you are, without having to travel to Paris to find your community.",
+  T:"As co-founder, own the operational and budget management of the events, the multichannel communication strategy and the brand image.",
+  A:"Identity: a round logo in dynamic colours, letters in motion for freedom · flagship events: « Fuck Valentine » (celebrating choosing yourself, with ADIS, sexual-health prevention) and « Summer is coming » (West Indian and West African summer wear in the spotlight) · social stories and posts, Shotgun ticketing, art direction of all assets.",
+  R:"Events <b>run end to end</b>, a community that gathers close to home, and part of the proceeds donated to partner association AMFD Île-de-France."}}
+];
+
+/* ================= APP ================= */
+let LANG = localStorage.getItem("tl_lang") || "fr";
+const $  = s=>document.querySelector(s);
+const $$ = s=>Array.from(document.querySelectorAll(s));
+const t  = k=>I18N[LANG][k];
+
+function applyI18n(){
+  document.documentElement.lang = LANG;
+  $$("[data-i18n]").forEach(el=>{const v=t(el.dataset.i18n); if(v!=null)el.textContent=v;});
+  $$("[data-i18n-html]").forEach(el=>{const v=t(el.dataset.i18nHtml); if(v!=null)el.innerHTML=v;});
+  $$("[data-i18n-ph]").forEach(el=>{const v=t(el.dataset.i18nPh); if(v!=null)el.placeholder=v;});
+  $("#btn-fr").classList.toggle("on",LANG==="fr");
+  $("#btn-en").classList.toggle("on",LANG==="en");
+}
+function setLang(l){LANG=l;localStorage.setItem("tl_lang",l);renderAll();}
+
+function renderExp(){
+  $("#exp").innerHTML=t("exp_items").map(c=>`<span><i></i>${c}</span>`).join("");
+  $("#stack").innerHTML=t("stack").join("&nbsp;&nbsp;·&nbsp;&nbsp;");
+}
+
+function renderPrix(){
+  $("#prix").innerHTML=t("packs").map((p,i)=>`
+   <div class="ocard${i===1?" mid":""}">
+     ${p.badge?`<span class="badge">${p.badge}</span>`:""}
+     <span class="ocard__tag">${p.tag}</span>
+     <div class="ocard__price">${p.price}<small> HT</small></div>
+     <ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul>
+     <a class="cta" href="#/#contact">${p.cta}</a>
+   </div>`).join("");
+}
+
+const FEATURED=["orange-anoo","sap-transformation","estatesync","comet-meetings"];
+/* ordre d'affichage de la page projets : profils mélangés (Orange, SaaS, marques, créatif) */
+const ORDER=["orange-anoo","sap-transformation","estatesync","orange-sst","cribbz-pro","comet-meetings","novu-ai","orange-kit-visuel","remap","karl-kani-ux","paris-insider","orange-roadmap","wedd","sultane-de-saba","konectsport","mjccs","handisport","starkie","vincero","culturama"];
+
+function cardHTML(pj,wide){
+  const L=pj[LANG];
+  return `<a class="pcard-p${wide?" wide":""}" href="#/projet/${pj.slug}">
+    <div class="im"><img src="${pj.img}" alt="${L.t}" loading="lazy"></div>
+    <div class="bd"><h3>${L.t}</h3><p>${L.d}</p>
+      <div class="pills">${L.tags.map(x=>`<span class="pill">${x}</span>`).join("")}</div>
+    </div>
+  </a>`;
+}
+
+function renderGrid(){
+  $("#grid").innerHTML=P.filter(p=>FEATURED.includes(p.slug)).map(pj=>cardHTML(pj,false)).join("");
+}
+
+function renderGridAll(){
+  const list=ORDER.map(s=>P.find(p=>p.slug===s)).filter(Boolean);
+  $("#grid-all").innerHTML=list.map((pj,i)=>cardHTML(pj,i===0||i===list.length-1)).join("");
+}
+
+function renderSubjects(){
+  const sel=$("#ct-subject"); if(!sel)return;
+  sel.innerHTML=t("subjects").map(s=>`<option>${s}</option>`).join("");
+}
+
+function renderDetail(slug){
+  const pj=P.find(p=>p.slug===slug);
+  const root=$("#pd-root");
+  if(!pj){root.innerHTML="<p style='padding:80px 0'>404</p>";return;}
+  const L=pj[LANG],S=t("star");
+  const gal=pj.gal.length
+    ?`<div class="pd__gal">${pj.gal.map(g=>`<figure><img src="${g}" alt="" loading="lazy"></figure>`).join("")}</div>`:"";
+  const others=P.filter(x=>x.slug!==slug).slice(0,3).map(x=>
+    `<a href="#/projet/${x.slug}"><h5>${x[LANG].t}</h5><span>${x[LANG].d}</span></a>`).join("");
+  root.innerHTML=`
+    <a class="pd__back" href="#/projets">← ${t("pd_back")}</a>
+    <div class="pd__hero"><img src="${pj.img}" alt="${L.t}"></div>
+    <h1>${L.t}</h1>
+    <div class="pd__meta">${L.tags.map(x=>`<span class="pill">${x}</span>`).join("")}</div>
+    ${gal}
+    <div class="star">
+      <div class="scard"><h4>${S.S}</h4><p>${L.S}</p></div>
+      <div class="scard"><h4>${S.T}</h4><p>${L.T}</p></div>
+      <div class="scard"><h4>${S.A}</h4><p>${L.A}</p></div>
+      <div class="scard res"><h4>${S.R}</h4><p>${L.R}</p></div>
+    </div>
+    <div class="pd__stack"><h3>${t("pd_stack")}</h3>
+      <div class="chips">${pj.stack.map(s=>`<span class="chip">${s}</span>`).join("")}</div></div>
+    <div class="pd__more"><h3>${t("pd_more")}</h3><div class="mini">${others}</div></div>
+    <div style="height:70px"></div>`;
+  window.scrollTo(0,0);
+}
+
+/* ================= ROUTER ================= */
+function route(){
+  const h=location.hash||"#/";
+  const detail=h.startsWith("#/projet/");
+  const projects=!detail&&h.startsWith("#/projets");
+  $("#page-home").classList.toggle("on",!detail&&!projects);
+  $("#page-projects").classList.toggle("on",projects);
+  $("#page-detail").classList.toggle("on",detail);
+  if(detail){renderDetail(h.split("/")[2]);return;}
+  if(projects){window.scrollTo(0,0);return;}
+  const anchor=h.split("#")[2];
+  if(anchor){setTimeout(()=>{const el=document.getElementById(anchor);el&&el.scrollIntoView();},30);}
+  else window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+
+/* formulaire → mailto */
+function sendMail(f,ev){
+  ev.preventDefault();
+  if(f.website&&f.website.value)return false; /* bot */
+  const d=new FormData(f);
+  const subj=encodeURIComponent("[TL DESIGN] "+(d.get("subject")||"Contact")+" · "+(d.get("name")||""));
+  const body=encodeURIComponent((d.get("message")||"")+"\n\n"+(d.get("name")||"")+" · "+(d.get("email")||""));
+  alert(t("f_ok"));
+  location.href=`mailto:lounestaibipro@gmail.com?subject=${subj}&body=${body}`;
+  return false;
+}
+
+function renderAll(){
+  applyI18n();renderExp();renderPrix();renderGrid();renderGridAll();renderSubjects();route();
+}
+$$(".cv-link").forEach(a=>a.href=CANVA_URL);
+renderAll();
+</script>
+</body>
+</html>

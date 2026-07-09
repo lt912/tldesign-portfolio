@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Lexend, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="1600" height="900" fill="#101013"/>
+
+  <!-- titre -->
+  <text x="70" y="95" fill="#FFCC08" font-size="17" font-weight="700" letter-spacing="5">PROPOSITIONS · PROJET D'ÉTUDE</text>
+  <text x="70" y="152" fill="#FFFFFF" font-size="46" font-weight="800">Karl Kani · la refonte proposée</text>
+  <text x="70" y="192" fill="#A6A6AD" font-size="20">10 pistes pour une home minimaliste, fidèle aux codes du luxe</text>
+
+  <!-- wireframe refonte -->
+  <rect x="70" y="240" width="640" height="590" rx="14" fill="#17171A" stroke="#2C2C33"/>
+  <rect x="90" y="260" width="600" height="34" rx="8" fill="#101013"/>
+  <circle cx="110" cy="277" r="5" fill="#3A3A41"/><circle cx="128" cy="277" r="5" fill="#3A3A41"/><circle cx="146" cy="277" r="5" fill="#3A3A41"/>
+
+  <!-- header epure : logo centre, recherche 1 clic, acces homme/femme -->
+  <rect x="90" y="306" width="600" height="48" fill="#1F1F24"/>
+  <text x="132" y="336" fill="#DADAE0" font-size="14" font-weight="600">HOMME</text>
+  <text x="208" y="336" fill="#DADAE0" font-size="14" font-weight="600">FEMME</text>
+  <rect x="340" y="320" width="100" height="20" rx="4" fill="#FFCC08"/>
+  <text x="390" y="335" fill="#000" font-size="12" font-weight="800" text-anchor="middle">LOGO</text>
+  <circle cx="648" cy="329" r="9" fill="none" stroke="#DADAE0" stroke-width="2.5"/>
+  <line x1="655" y1="336" x2="663" y2="344" stroke="#DADAE0" stroke-width="2.5"/>
+
+  <!-- carrousel avec marges -->
+  <rect x="120" y="382" width="540" height="200" fill="#232329"/>
+  <text x="390" y="472" fill="#5A5A63" font-size="16" font-weight="600" text-anchor="middle">CARROUSEL · DERNIÈRE COLLECTION</text>
+  <text x="146" y="490" fill="#A6A6AD" font-size="26" font-weight="700">‹</text>
+  <text x="634" y="490" fill="#A6A6AD" font-size="26" font-weight="700" text-anchor="end">›</text>
+  <circle cx="374" cy="566" r="4" fill="#FFCC08"/><circle cx="390" cy="566" r="4" fill="#4A4A52"/><circle cx="406" cy="566" r="4" fill="#4A4A52"/>
+
+  <!-- deux tuiles carrees homme / femme cliquables -->
+  <rect x="120" y="612" width="256" height="122" fill="#232329"/>
+  <text x="136" y="638" fill="#8A8A93" font-size="13" font-weight="700">HOMME</text>
+  <rect x="136" y="694" width="106" height="26" rx="2" fill="none" stroke="#FFCC08" stroke-width="1.5"/>
+  <text x="189" y="711" fill="#FFCC08" font-size="11" font-weight="700" text-anchor="middle">DÉCOUVRIR</text>
+
+  <rect x="404" y="612" width="256" height="122" fill="#232329"/>
+  <text x="420" y="638" fill="#8A8A93" font-size="13" font-weight="700">FEMME</text>
+  <rect x="420" y="694" width="106" height="26" rx="2" fill="none" stroke="#FFCC08" stroke-width="1.5"/>
+  <text x="473" y="711" fill="#FFCC08" font-size="11" font-weight="700" text-anchor="middle">DÉCOUVRIR</text>
+
+  <!-- newsletter -->
+  <rect x="120" y="756" width="540" height="42" fill="#1F1F24"/>
+  <text x="140" y="782" fill="#8A8A93" font-size="13">Votre email pour suivre les prochaines collections</text>
+  <rect x="566" y="764" width="80" height="26" rx="2" fill="#FFCC08"/>
+  <text x="606" y="782" fill="#000" font-size="12" font-weight="800" text-anchor="middle">OK</text>
+
+  <!-- liste des propositions -->
+  <g font-size="18">
+    <circle cx="810" cy="282" r="14" fill="#FFCC08"/><text x="810" y="287" fill="#000" font-size="14" font-weight="800" text-anchor="middle">1</text>
+    <text x="842" y="288" fill="#E8E8EC" font-weight="600">Mettre le logo en valeur, réduire le texte</text>
+
+    <circle cx="810" cy="338" r="14" fill="#FFCC08"/><text x="810" y="343" fill="#000" font-size="14" font-weight="800" text-anchor="middle">2</text>
+    <text x="842" y="344" fill="#E8E8EC" font-weight="600">Simplifier la recherche : un seul clic</text>
+
+    <circle cx="810" cy="394" r="14" fill="#FFCC08"/><text x="810" y="399" fill="#000" font-size="14" font-weight="800" text-anchor="middle">3</text>
+    <text x="842" y="400" fill="#E8E8EC" font-weight="600">Ajouter des marges latérales contre l'encombrement</text>
+
+    <circle cx="810" cy="450" r="14" fill="#FFCC08"/><text x="810" y="455" fill="#000" font-size="14" font-weight="800" text-anchor="middle">4</text>
+    <text x="842" y="456" fill="#E8E8EC" font-weight="600">Un carrousel pour la dernière collection</text>
+
+    <circle cx="810" cy="506" r="14" fill="#FFCC08"/><text x="810" y="511" fill="#000" font-size="14" font-weight="800" text-anchor="middle">5</text>
+    <text x="842" y="512" fill="#E8E8EC" font-weight="600">Du contexte pour chaque élément présenté</text>
+
+    <circle cx="810" cy="562" r="14" fill="#FFCC08"/><text x="810" y="567" fill="#000" font-size="14" font-weight="800" text-anchor="middle">6</text>
+    <text x="842" y="568" fill="#E8E8EC" font-weight="600">Images carrées, sans arrondis : esthétique luxe</text>
+
+    <circle cx="810" cy="618" r="14" fill="#FFCC08"/><text x="810" y="623" fill="#000" font-size="14" font-weight="800" text-anchor="middle">7</text>
+    <text x="842" y="624" fill="#E8E8EC" font-weight="600">Images cliquables, boutons lisibles mais discrets</text>
+
+    <circle cx="810" cy="674" r="14" fill="#FFCC08"/><text x="810" y="679" fill="#000" font-size="14" font-weight="800" text-anchor="middle">8</text>
+    <text x="842" y="680" fill="#E8E8EC" font-weight="600">Montrer la collection précédente, pas juste la citer</text>
+
+    <circle cx="810" cy="730" r="14" fill="#FFCC08"/><text x="810" y="735" fill="#000" font-size="14" font-weight="800" text-anchor="middle">9</text>
+    <text x="842" y="736" fill="#E8E8EC" font-weight="600">Accès directs aux articles Homme et Femme</text>
+
+    <circle cx="810" cy="786" r="14" fill="#FFCC08"/><text x="810" y="791" fill="#000" font-size="13" font-weight="800" text-anchor="middle">10</text>
+    <text x="842" y="792" fill="#E8E8EC" font-weight="600">Une newsletter : engagement, fidélité, notoriété</text>
+  </g>
+
+  <text x="1530" y="860" fill="#6E6E76" font-size="14" font-weight="600" text-anchor="end">TL DESIGN · Étude UX Karl Kani · 2/2</text>
+</svg>
