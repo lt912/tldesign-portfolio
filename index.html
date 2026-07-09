@@ -55,6 +55,18 @@ button{font-family:var(--ff);cursor:pointer}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
+/* ---------- motion : page-load cascade ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes hpop{from{opacity:0;transform:translateY(38px) scale(.94)}to{opacity:1;transform:none}}
+.hero .mark,.hero .kick,.hero h1,.hero__sub,.hero__ctas,.hero .hcard{opacity:0;animation:rise .85s cubic-bezier(.22,.75,.3,1) forwards}
+.hero .mark{animation-delay:.05s}
+.hero .kick{animation-delay:.18s}
+.hero h1{animation-name:hpop;animation-duration:.95s;animation-delay:.3s}
+.hero__sub{animation-delay:.5s}
+.hero__ctas{animation-delay:.66s}
+.hero .hcard{animation-delay:.55s}
+@media(prefers-reduced-motion:reduce){.hero .mark,.hero .kick,.hero h1,.hero__sub,.hero__ctas,.hero .hcard{animation:none;opacity:1}}
+
 /* ---------- hero ---------- */
 .hero{padding:104px 0 76px;position:relative;overflow:hidden}
 /* yellow glow following the cursor */
@@ -104,27 +116,51 @@ button{font-family:var(--ff);cursor:pointer}
 .sec__hd h2{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:14px}
 .sec__hd p{margin-top:16px;color:var(--gris);font-size:15px;line-height:1.7;font-weight:300}
 
-/* expertise : 50/50 split, text left / native illustration right */
-.xsplit{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:12px}
+/* expertise : 3-column grid, 2 for text / 1 for a smaller borderless illustration */
+.xsplit{display:grid;grid-template-columns:2fr 1fr;gap:56px;align-items:center;margin-top:12px}
 @media(max-width:900px){.xsplit{grid-template-columns:1fr}}
-.exp{display:grid;grid-template-columns:1fr;gap:0;margin-top:32px}
+.exp{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:32px}
+@media(max-width:640px){.exp{grid-template-columns:1fr}}
 .exp span{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line2);font-size:14.5px;color:#E8E8EC;transition:padding-left .3s,color .3s}
 .exp span:hover{padding-left:8px;color:#fff}
 .exp i{width:7px;height:7px;background:var(--jaune);border-radius:2px;flex:none}
-.xfig{position:relative;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(160deg,var(--panel),var(--noir2));padding:44px 36px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.xfig::before{content:"";position:absolute;inset:auto -60px -60px auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(255,204,8,.16),transparent 70%)}
-.xfig img{position:relative;width:100%;max-width:360px;height:auto;filter:drop-shadow(0 18px 36px rgba(0,0,0,.45))}
-@media(max-width:900px){.xfig{max-width:480px;margin:0 auto}}
+.xfig{display:flex;align-items:center;justify-content:center}
+.xfig img{width:100%;max-width:250px;height:auto;filter:drop-shadow(0 18px 36px rgba(0,0,0,.45))}
+@media(max-width:900px){.xfig{max-width:300px;margin:0 auto}}
 
 /* tools */
-.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
-@media(max-width:860px){.tools{grid-template-columns:1fr 1fr}}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+@media(max-width:960px){.tools{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.tools{grid-template-columns:1fr}}
 .tool{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px 18px;transition:border-color .3s,transform .3s}
 .tool:hover{border-color:var(--jaune);transform:translateY(-2px)}
-.tool svg{width:26px;height:26px;flex:none;color:var(--jaune)}
+.tool svg{width:26px;height:26px;flex:none}
 .tool b{font-size:14px;font-weight:600;color:#E8E8EC;display:block}
 .tool small{display:block;font-size:11.5px;color:var(--gris2);margin-top:2px}
+
+/* certifications & diplomas : compact two-column reassurance block */
+.certs{margin-top:64px}
+.certs h3{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--jaune);font-weight:700}
+.certs__grid{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:14px}
+@media(max-width:760px){.certs__grid{grid-template-columns:1fr}}
+.certs__grid div{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line2);font-size:13px;color:#DADAE0;font-weight:300;line-height:1.5}
+.certs__grid b{color:var(--jaune);font-weight:700;font-size:12px;letter-spacing:.04em;white-space:nowrap;flex:none}
+
+/* projets : asymmetric bento grid (home, 5 projects) */
+.bento{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-areas:"a a b" "a a c" "d e c";gap:18px;margin-top:36px}
+.b-a{grid-area:a}.b-b{grid-area:b}.b-c{grid-area:c}.b-d{grid-area:d}.b-e{grid-area:e}
+.bento .pcard-p .im{height:170px}
+.bento .b-a .im{height:380px}
+.bento .b-c .im{height:300px}
+@media(max-width:960px){
+  .bento{grid-template-columns:1fr 1fr;grid-template-areas:"a a" "b c" "d e"}
+  .bento .b-a .im{height:280px}
+  .bento .b-c .im{height:170px}
+}
+@media(max-width:640px){
+  .bento{grid-template-columns:1fr;grid-template-areas:"a" "b" "c" "d" "e"}
+  .bento .pcard-p .im,.bento .b-a .im,.bento .b-c .im{height:190px}
+}
 
 /* projets */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
@@ -297,6 +333,10 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
         <p data-i18n="tl_sub"></p>
       </div>
       <div class="tools rv" id="tools"></div>
+      <div class="certs rv">
+        <h3 data-i18n="cf_title"></h3>
+        <div class="certs__grid" id="certs"></div>
+      </div>
     </div>
   </section>
 
@@ -307,7 +347,7 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
         <h2 data-i18n="pj_title"></h2>
         <p data-i18n="pj_sub"></p>
       </div>
-      <div class="grid rv" id="grid"></div>
+      <div class="bento rv" id="grid"></div>
       <div class="rv" style="text-align:center;margin-top:40px">
         <a class="btn-ghost" href="#/projets" data-i18n="pj_all"></a>
       </div>
@@ -407,19 +447,28 @@ fr:{
  hc_foot:"Disponible pour missions freelance",
  refs_label:"Ils m'ont fait confiance",
  clients:["Orange","Comet Meetings","Novu AI","Paris Insider","La Sultane de Saba","MJCCS","Vincero","Handisport"],
- exp_kick:"Expertises", exp_title:"Un profil hybride, un seul interlocuteur.",
- exp_sub:"La stratégie, le design et le pilotage réunis : moins d'allers-retours, plus de décisions, un projet qui avance. Faisons avancer vos projets pour de vrai en supprimant les frictions qui ralentissent votre business.",
- exp_items:["Direction de projet créatif & digital","Branding & consulting","Communication visuelle","Identité de marque & chartes graphiques","UI/UX design","Conception web & mobile","Illustration print / digital","Coordination multi-équipes"],
+ exp_kick:"Expertises", exp_title:"Le pilotage d'abord. Le design en force de frappe.",
+ exp_sub:"Gestion de projet, coordination et conduite du changement : je sécurise les délais, les budgets et les décisions. Le design vient ensuite, comme levier d'exécution. Moins d'allers-retours, plus de décisions, un projet qui avance : supprimons les frictions qui ralentissent votre business.",
+ exp_items:["Gestion de projet créatif & digital","Coordination multi-équipes","Transformation digitale & conduite du changement","Stratégie de marque & consulting","Communication visuelle","UI/UX design","Conception web & mobile","Identité de marque & chartes graphiques"],
  tl_kick:"Stack", tl_title:"Mes outils",
- tl_sub:"Des outils certifiés et maîtrisés, au service du pilotage comme de la production.",
+ tl_sub:"Des outils maîtrisés, au service du pilotage comme de la production.",
  tools:[
   {ic:"adobe",n:"Suite Adobe",s:"Création & production"},
-  {ic:"figma",n:"Figma",s:"UI/UX & prototypage"},
-  {ic:"notion",n:"Notion",s:"Pilotage & documentation"},
-  {ic:"agile",n:"Agile",s:"Méthodologie de projet"},
-  {ic:"cloud",n:"Cloud",s:"Google Certified"},
-  {ic:"dynamics",n:"Dynamics 365",s:"Microsoft Certified"}],
- pj_kick:"Études de cas", pj_title:"Une sélection de quatre projets.",
+  {ic:"canva",n:"Canva",s:"Design rapide & collaboratif"},
+  {ic:"ia",n:"Outils IA",s:"Productivité & génération"},
+  {ic:"wordpress",n:"WordPress",s:"Sites & CMS"},
+  {ic:"elementor",n:"Elementor",s:"Conception web no-code"},
+  {ic:"capcut",n:"CapCut",s:"Montage vidéo"},
+  {ic:"office",n:"Suite Office",s:"Bureautique & reporting"},
+  {ic:"gsuite",n:"Google Suite",s:"Collaboration & cloud"}],
+ cf_title:"Certifications & Diplômes",
+ certs:[
+  {y:"2026",t:"Formation Entrepreneurship in a Digital Age, HEC Paris"},
+  {y:"2024 – 2026",t:"Master of Science Strategic Project Management & Entrepreneurship, Epitech Paris"},
+  {y:"2025",t:"Certification Google Cloud Digital Leader"},
+  {y:"2025",t:"Certification Dynamics 365 Business Central Functional Consultant Associate (MB-800)"},
+  {y:"2023",t:"Licence en Management de Projet Web, SUP'Internet Paris"}],
+ pj_kick:"Études de cas", pj_title:"Une sélection de cinq projets.",
  pj_sub:"Chaque étude de cas suit la méthode Situation → Tâche → Action → Résultat.",
  pj_all:"Voir les 20 projets",
  pp_kick:"Portfolio", pp_title:"Tous les projets.",
@@ -456,19 +505,28 @@ en:{
  hc_foot:"Available for freelance work",
  refs_label:"They trusted me",
  clients:["Orange","Comet Meetings","Novu AI","Paris Insider","La Sultane de Saba","MJCCS","Vincero","Handisport"],
- exp_kick:"Expertise", exp_title:"A hybrid profile, one single point of contact.",
- exp_sub:"Strategy, design and delivery in one place: fewer back-and-forths, faster decisions, a project that moves. Let's remove the frictions slowing your business down — for real.",
- exp_items:["Creative & digital project leadership","Branding & consulting","Visual communication","Brand identity & guidelines","UI/UX design","Web & mobile design","Print / digital illustration","Cross-team coordination"],
+ exp_kick:"Expertise", exp_title:"Project leadership first. Design as the striking force.",
+ exp_sub:"Project management, coordination and change management: I secure deadlines, budgets and decisions. Design comes next, as an execution lever. Fewer back-and-forths, faster decisions, a project that moves: let's remove the frictions slowing your business down.",
+ exp_items:["Creative & digital project management","Cross-team coordination","Digital transformation & change management","Brand strategy & consulting","Visual communication","UI/UX design","Web & mobile design","Brand identity & guidelines"],
  tl_kick:"Stack", tl_title:"My tools",
- tl_sub:"Certified, mastered tools, serving both project steering and production.",
+ tl_sub:"Mastered tools, serving both project steering and production.",
  tools:[
   {ic:"adobe",n:"Adobe Suite",s:"Creation & production"},
-  {ic:"figma",n:"Figma",s:"UI/UX & prototyping"},
-  {ic:"notion",n:"Notion",s:"Steering & documentation"},
-  {ic:"agile",n:"Agile",s:"Project methodology"},
-  {ic:"cloud",n:"Cloud",s:"Google Certified"},
-  {ic:"dynamics",n:"Dynamics 365",s:"Microsoft Certified"}],
- pj_kick:"Case studies", pj_title:"A selection of four projects.",
+  {ic:"canva",n:"Canva",s:"Fast collaborative design"},
+  {ic:"ia",n:"AI tools",s:"Productivity & generation"},
+  {ic:"wordpress",n:"WordPress",s:"Sites & CMS"},
+  {ic:"elementor",n:"Elementor",s:"No-code web design"},
+  {ic:"capcut",n:"CapCut",s:"Video editing"},
+  {ic:"office",n:"Office Suite",s:"Office & reporting"},
+  {ic:"gsuite",n:"Google Suite",s:"Collaboration & cloud"}],
+ cf_title:"Certifications & Degrees",
+ certs:[
+  {y:"2026",t:"Entrepreneurship in a Digital Age programme, HEC Paris"},
+  {y:"2024 – 2026",t:"Master of Science Strategic Project Management & Entrepreneurship, Epitech Paris"},
+  {y:"2025",t:"Google Cloud Digital Leader certification"},
+  {y:"2025",t:"Dynamics 365 Business Central Functional Consultant Associate certification (MB-800)"},
+  {y:"2023",t:"Bachelor's degree in Web Project Management, SUP'Internet Paris"}],
+ pj_kick:"Case studies", pj_title:"A selection of five projects.",
  pj_sub:"Every case study follows the Situation → Task → Action → Result method.",
  pj_all:"See all 20 projects",
  pp_kick:"Portfolio", pp_title:"All projects.",
@@ -750,20 +808,20 @@ const P = [
 
 {slug:"sap-transformation",img:"assets/img/sap.jpg",gal:["assets/img/sap-g1.jpg","assets/img/sap-g2.jpg"],
  stack:["SAP","Excel (modélisation financière)","Cartographie de processus","Business case"],
- fr:{t:"SAP · Transformation digitale des ventes",
-  d:"Chef de projet : cartographie des processus, modélisation financière et business case du déploiement SAP pour la direction marketing et commerciale.",
-  tags:["Gestion de projet","Transformation digitale","Stratégie"],
-  S:"Des commandes B2B standard et sur-mesure qui vivent sur WhatsApp, Excel et Post-it : qualification manuelle (10 à 20 % de demandes perdues, soit un manque à gagner direct sur le chiffre d'affaires), stocks vérifiés par téléphone sans réservation, grilles de prix obsolètes qui érodent la marge, fiches navettes papier.",
-  T:"En chef de projet orienté transformation digitale (équipe de 4), cartographier l'existant, modéliser les pertes sous Excel et construire le business case du déploiement de l'ERP SAP pour la direction marketing et commerciale.",
-  A:"Cartographie as-is des deux parcours de commande (standard et sur-mesure) · pertes chiffrées par métier et consolidées dans un modèle financier Excel (scénarios central, optimiste, prudent) · processus cibles sous SAP : saisie sur tablette, tarification exacte, analyse de solvabilité automatisée, ordre de fabrication déclenché par l'acompte, suivi de production scanné en temps réel · business case complet : coûts d'investissement, gains récurrents, point mort · gouvernance à quatre niveaux · roadmap budgétée 2026-2027 et arguments pour le comité d'entreprise.",
-  R:"Un projet <b>rentable en moins d'un an</b> : 700 k€ d'investissement sur 3 ans pour un <b>ROI de 129 %</b> (899 k€ de résultat net), validé par une analyse de sensibilité : le scénario prudent reste rentable à 60 % des gains projetés."},
- en:{t:"SAP · Digital transformation of sales",
-  d:"Project manager: process mapping, financial modelling and business case for the SAP rollout across the marketing and sales direction.",
-  tags:["Project management","Digital transformation","Strategy"],
-  S:"Standard and custom B2B orders living on WhatsApp, Excel and Post-its: manual qualification (10 to 20% of requests lost, a direct revenue shortfall), stock checked by phone with no reservation, outdated price grids eroding margin, paper worksheets.",
-  T:"As a digital-transformation project manager (team of 4), map the as-is, model the losses in Excel and build the business case for the SAP ERP rollout across the marketing and sales direction.",
-  A:"As-is mapping of both order journeys (standard and custom) · losses quantified per role and consolidated into an Excel financial model (central, optimistic and conservative scenarios) · target processes on SAP: tablet entry, exact pricing, automated solvency checks, production order triggered by the deposit, real-time scanned production tracking · full business case: investment costs, recurring gains, break-even point · four-level governance · budgeted 2026-2027 roadmap and works-council arguments.",
-  R:"A project <b>profitable in under a year</b>: €700k invested over 3 years for a <b>129% ROI</b> (€899k net result), validated by a sensitivity analysis: the conservative scenario stays profitable at 60% of projected gains."}},
+ fr:{t:"SAP · Transformation digitale des processus de vente",
+  d:"Un processus de transformation digitale mené de bout en bout : de la cartographie de l'existant à l'adoption par les équipes, business case à l'appui.",
+  tags:["Transformation digitale","Conduite du changement","Gestion de projet"],
+  S:"Une organisation commerciale dont les processus n'avaient jamais été digitalisés : commandes B2B gérées sur WhatsApp, Excel et Post-it, qualification manuelle (10 à 20 % de demandes perdues, un manque à gagner direct), stocks vérifiés par téléphone sans réservation, grilles de prix obsolètes qui érodent la marge. Le vrai enjeu n'était pas l'outil, mais la transformation des façons de travailler.",
+  T:"En chef de projet transformation digitale (équipe de 4), structurer le processus complet de transformation : diagnostiquer l'existant, redessiner les processus cibles, chiffrer le passage, et préparer l'adhésion des équipes comme des instances représentatives.",
+  A:"Phase 1 · Diagnostic : cartographie as-is des deux parcours de commande et pertes chiffrées par métier dans un modèle financier Excel (scénarios central, optimiste, prudent). Phase 2 · Processus cibles sous SAP : saisie sur tablette, tarification exacte, analyse de solvabilité automatisée, ordre de fabrication déclenché par l'acompte, suivi de production en temps réel. Phase 3 · Conduite du changement : gouvernance à quatre niveaux impliquant les métiers, roadmap progressive 2026-2027 pour lisser l'adoption, et argumentaire dédié au comité d'entreprise pour lever les résistances.",
+  R:"Un processus de transformation <b>rentable en moins d'un an</b> : 700 k€ d'investissement sur 3 ans pour un <b>ROI de 129 %</b> (899 k€ de résultat net), sécurisé par une analyse de sensibilité (rentable même à 60 % des gains projetés) et pensé pour être adopté, pas subi, par les équipes."},
+ en:{t:"SAP · Digital transformation of sales processes",
+  d:"An end-to-end digital transformation process: from as-is mapping to team adoption, business case included.",
+  tags:["Digital transformation","Change management","Project management"],
+  S:"A sales organisation whose processes had never been digitalised: B2B orders run on WhatsApp, Excel and Post-its, manual qualification (10 to 20% of requests lost, a direct revenue shortfall), stock checked by phone with no reservation, outdated price grids eroding margin. The real challenge was not the tool, but transforming the ways of working.",
+  T:"As a digital-transformation project manager (team of 4), structure the full transformation process: diagnose the as-is, redesign the target processes, quantify the transition, and prepare buy-in from both the teams and the employee representative bodies.",
+  A:"Phase 1 · Diagnosis: as-is mapping of both order journeys and losses quantified per role in an Excel financial model (central, optimistic and conservative scenarios). Phase 2 · Target processes on SAP: tablet entry, exact pricing, automated solvency checks, production order triggered by the deposit, real-time production tracking. Phase 3 · Change management: four-level governance involving the business teams, a progressive 2026-2027 roadmap to smooth adoption, and a dedicated works-council argument to defuse resistance.",
+  R:"A transformation process <b>profitable in under a year</b>: €700k invested over 3 years for a <b>129% ROI</b> (€899k net result), secured by a sensitivity analysis (still profitable at 60% of projected gains) and designed to be embraced by the teams, not endured."}},
 
 {slug:"estatesync",img:"assets/img/estatesync.jpg",gal:["assets/img/estatesync-g1.jpg","assets/img/estatesync-g2.jpg"],
  stack:["Stratégie produit","Excel (projections financières)","IA","Go-to-market"],
@@ -854,19 +912,25 @@ function renderExp(){
   $("#exp").innerHTML=t("exp_items").map(c=>`<span><i></i>${c}</span>`).join("");
 }
 
-/* minimal monochrome SVG marks, one per tool */
+/* brand SVG marks, one per tool */
 const ICONS={
- adobe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3H3v18M15 3h6v18M12 8l4.5 13M12 8 7.5 21M9.2 16.5h5.6"/></svg>',
- figma:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="15" cy="9" r="3"/><path d="M9 3h3v12H9a3 3 0 1 1 0-6 3 3 0 0 1 0-6h3M12 15v3a3 3 0 1 1-3-3"/><path d="M12 3h3a3 3 0 1 1 0 6h-3"/></svg>',
- notion:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8.5 16V8l7 8V8"/></svg>',
- agile:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4"/><path d="M12 8v4l3 2"/></svg>',
- cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4.5 4.5 0 1 1 .7-8.95A6 6 0 0 1 19.4 11 3.5 3.5 0 0 1 18 18Z"/></svg>',
- dynamics:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3v18M6 12l12-7v5L6 15M18 11v10l-8-4.5"/></svg>'
+ adobe:'<svg viewBox="0 0 24 24"><path fill="#FA0F00" d="M14.4 3H21v18L14.4 3zM9.6 3H3v18L9.6 3zM12 9.2 16.1 21h-2.7l-1.2-3.1H9.3L12 9.2z"/></svg>',
+ canva:'<svg viewBox="0 0 24 24"><defs><linearGradient id="lg-cnv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00C4CC"/><stop offset="1" stop-color="#7D2AE8"/></linearGradient></defs><circle cx="12" cy="12" r="10" fill="url(#lg-cnv)"/><path fill="#fff" d="M14.9 14.1c-.6 1.4-1.9 2.4-3.3 2.4-2 0-3.3-1.7-3.3-3.9 0-3 2-5.1 4.2-5.1 1.2 0 2.1.7 2.1 1.7 0 .5-.3.9-.7.9-.4 0-.6-.3-.6-.7 0-.5-.4-.9-1-.9-1.4 0-2.7 1.7-2.7 4 0 1.7.8 2.9 2.1 2.9 1 0 2-.7 2.5-1.7.1-.2.3-.3.5-.2.2.1.3.3.2.6z"/></svg>',
+ ia:'<svg viewBox="0 0 24 24" fill="#FFCC08"><path d="M11 2.5 12.7 8.3 18.5 10l-5.8 1.7L11 17.5 9.3 11.7 3.5 10l5.8-1.7z"/><path d="M18.5 14.5l.9 3.1 3.1.9-3.1.9-.9 3.1-.9-3.1-3.1-.9 3.1-.9z"/></svg>',
+ wordpress:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#21759B"/><path fill="#fff" d="M4.7 12c0-1 .2-2 .6-2.9l3.4 9.3A7.3 7.3 0 0 1 4.7 12zm12.2-.4c0 .8-.3 1.8-.7 3l-1 3.2-3.4-10c.6 0 1.1-.1 1.1-.1.5-.1.5-.8-.1-.8 0 0-1.6.1-2.6.1-.9 0-2.5-.1-2.5-.1-.5 0-.6.7-.1.8 0 0 .5 0 1 .1l1.5 4-2 6.1L4.6 8c.6 0 1.1-.1 1.1-.1.5-.1.5-.8-.1-.8 0 0-1.5.1-2.5.1h-.6A7.3 7.3 0 0 1 12 4.7c1.9 0 3.6.7 4.9 1.9h-.1c-.7 0-1.2.6-1.2 1.3 0 .6.3 1.1.7 1.7.3.5.6 1.1.6 2zm-4.8 1.2 2.3 6.3v.1a7.3 7.3 0 0 1-4.5.1l2.2-6.5zm6.5-4.5a7.3 7.3 0 0 1-2.7 9.8l2.2-6.5c.4-1 .6-1.9.6-2.6l-.1-.7z"/></svg>',
+ elementor:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#92003B"/><path fill="#fff" d="M8.2 7.5h2.1v9H8.2zM11.9 7.5h4.4v2.1h-4.4zM11.9 11h4.4v2.1h-4.4zM11.9 14.4h4.4v2.1h-4.4z"/></svg>',
+ capcut:'<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="#121212" stroke="rgba(255,255,255,.3)" stroke-width="1"/><path fill="#fff" d="m12.6 7.5 4.2 4.5-4.2 4.5v-2.8l1.6-1.7-1.6-1.7zM7 9.2l3.4 2.8L7 14.8z"/></svg>',
+ office:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="8.4" height="8.4" fill="#F25022"/><rect x="12.6" y="3" width="8.4" height="8.4" fill="#7FBA00"/><rect x="3" y="12.6" width="8.4" height="8.4" fill="#00A4EF"/><rect x="12.6" y="12.6" width="8.4" height="8.4" fill="#FFB900"/></svg>',
+ gsuite:'<svg viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.8 3-4.3 3-7.4z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.5L6.4 10c.8-2.3 3-4 5.6-4z"/></svg>'
 };
 
 function renderTools(){
   $("#tools").innerHTML=t("tools").map(o=>`
    <div class="tool">${ICONS[o.ic]||""}<span><b>${o.n}</b><small>${o.s}</small></span></div>`).join("");
+}
+
+function renderCerts(){
+  $("#certs").innerHTML=t("certs").map(c=>`<div><b>${c.y}</b><span>${c.t}</span></div>`).join("");
 }
 
 function renderMarquee(){
@@ -887,13 +951,15 @@ function renderPrix(){
    </div>`).join("");
 }
 
-const FEATURED=["orange-anoo","sap-transformation","estatesync","comet-meetings"];
+/* home bento grid: 5 projects mapped to the asymmetric areas a..e */
+const FEATURED=["comet-meetings","orange-anoo","cribbz-pro","wedd","sap-transformation"];
+const BENTO_AREAS=["b-a","b-b","b-c","b-d","b-e"];
 /* ordre d'affichage de la page projets : profils mélangés (Orange, SaaS, marques, créatif) */
 const ORDER=["orange-anoo","sap-transformation","estatesync","orange-sst","cribbz-pro","comet-meetings","novu-ai","orange-kit-visuel","remap","karl-kani-ux","paris-insider","orange-roadmap","wedd","sultane-de-saba","konectsport","mjccs","handisport","starkie","vincero","culturama"];
 
-function cardHTML(pj){
+function cardHTML(pj,cls){
   const L=pj[LANG];
-  return `<a class="pcard-p" href="#/projet/${pj.slug}">
+  return `<a class="pcard-p${cls?" "+cls:""}" href="#/projet/${pj.slug}">
     <div class="im"><img src="${pj.img}" alt="${L.t}" loading="lazy"></div>
     <div class="bd"><h3>${L.t}</h3><p>${L.d}</p>
       <div class="pills">${L.tags.map(x=>`<span class="pill">${x}</span>`).join("")}</div>
@@ -902,7 +968,10 @@ function cardHTML(pj){
 }
 
 function renderGrid(){
-  $("#grid").innerHTML=P.filter(p=>FEATURED.includes(p.slug)).map(pj=>cardHTML(pj)).join("");
+  $("#grid").innerHTML=FEATURED.map((s,i)=>{
+    const pj=P.find(p=>p.slug===s);
+    return pj?cardHTML(pj,BENTO_AREAS[i]):"";
+  }).join("");
 }
 
 function renderGridAll(){
@@ -1021,7 +1090,7 @@ function observeReveals(){$$(".rv:not(.in)").forEach(el=>rvObs.observe(el));}
 })();
 
 function renderAll(){
-  applyI18n();renderExp();renderTools();renderMarquee();renderPrix();renderGrid();renderGridAll();renderSubjects();route();
+  applyI18n();renderExp();renderTools();renderCerts();renderMarquee();renderPrix();renderGrid();renderGridAll();renderSubjects();route();
   startTypewriter();observeReveals();
 }
 renderAll();
