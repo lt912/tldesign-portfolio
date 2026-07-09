@@ -1,4 +1,4 @@
-# TL DESIGN · Portfolio
+# TL PROJECT · Portfolio
 
 Portfolio de **Lounès Taïbi**, chef de projet créatif. De la stratégie de marque au projet livré.
 
