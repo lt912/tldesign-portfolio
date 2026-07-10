@@ -117,16 +117,17 @@ button{font-family:var(--ff);cursor:pointer}
 .sec__hd p{margin-top:16px;color:var(--gris);font-size:15px;line-height:1.7;font-weight:300}
 
 /* expertise : 3-column grid, 2 for text / 1 for a smaller borderless illustration */
-.xsplit{display:grid;grid-template-columns:2fr 1fr;gap:56px;align-items:center;margin-top:12px}
+/* illustration anchored bottom-right, flush with the text block baseline */
+.xsplit{display:grid;grid-template-columns:2fr 1fr;gap:56px;align-items:end;margin-top:12px}
 @media(max-width:900px){.xsplit{grid-template-columns:1fr}}
 .exp{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:32px}
 @media(max-width:640px){.exp{grid-template-columns:1fr}}
 .exp span{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line2);font-size:14.5px;color:#E8E8EC;transition:padding-left .3s,color .3s}
 .exp span:hover{padding-left:8px;color:#fff}
 .exp i{width:7px;height:7px;background:var(--jaune);border-radius:2px;flex:none}
-.xfig{display:flex;align-items:center;justify-content:center}
-.xfig img{width:100%;max-width:250px;height:auto;filter:drop-shadow(0 18px 36px rgba(0,0,0,.45))}
-@media(max-width:900px){.xfig{max-width:300px;margin:0 auto}}
+.xfig{display:flex;align-items:flex-end;justify-content:flex-end;height:100%}
+.xfig img{width:100%;max-width:260px;height:auto;display:block;filter:drop-shadow(0 18px 36px rgba(0,0,0,.45))}
+@media(max-width:900px){.xfig{justify-content:center;align-items:center;max-width:300px;margin:0 auto}}
 
 /* tools */
 .tools{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
@@ -147,19 +148,16 @@ button{font-family:var(--ff);cursor:pointer}
 .certs__grid b{color:var(--jaune);font-weight:700;font-size:12px;letter-spacing:.04em;white-space:nowrap;flex:none}
 
 /* projets : asymmetric bento grid (home, 5 projects) */
+/* image wells lock to the 16/9 source ratio and use contain: nothing gets cropped */
 .bento{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-areas:"a a b" "a a c" "d e c";gap:18px;margin-top:36px}
 .b-a{grid-area:a}.b-b{grid-area:b}.b-c{grid-area:c}.b-d{grid-area:d}.b-e{grid-area:e}
-.bento .pcard-p .im{height:170px}
-.bento .b-a .im{height:380px}
-.bento .b-c .im{height:300px}
+.bento .pcard-p .im{height:auto;aspect-ratio:16/9;background:var(--noir2)}
+.bento .pcard-p .im img{object-fit:contain;object-position:center}
 @media(max-width:960px){
   .bento{grid-template-columns:1fr 1fr;grid-template-areas:"a a" "b c" "d e"}
-  .bento .b-a .im{height:280px}
-  .bento .b-c .im{height:170px}
 }
 @media(max-width:640px){
   .bento{grid-template-columns:1fr;grid-template-areas:"a" "b" "c" "d" "e"}
-  .bento .pcard-p .im,.bento .b-a .im,.bento .b-c .im{height:190px}
 }
 
 /* projets */
@@ -437,7 +435,7 @@ fr:{
  hero_kick:"Lounès Taïbi · Chef de projet créatif",
  hero_t1:"De la", hero_t2:"au projet livré.",
  tw_words:["stratégie de marque","direction artistique","coordination"],
- hero_sub:"Je fais le pont entre la création et l'exécution. <b>Designer devenu chef de projet</b> : je cadre, je pilote, je livre — chez Orange comme pour des marques internationales.",
+ hero_sub:"Je fais le pont entre la création et l'exécution. <b>Designer devenu chef de projet</b> : je cadre, je pilote, je livre, chez Orange comme pour des marques internationales.",
  hero_cta1:"Voir mes projets", hero_cta2:"Me contacter",
  hc_tag:"Actuellement", hc_title:"Chef de projet DRHG<br>& coordinateur chez <b>Orange</b>",
  hc_r1k:"Périmètre", hc_r1v:"Division QVCT · site Bridge",
@@ -495,7 +493,7 @@ en:{
  hero_kick:"Lounès Taïbi · Creative project manager",
  hero_t1:"From", hero_t2:"to delivered project.",
  tw_words:["brand strategy","art direction","coordination"],
- hero_sub:"I bridge creative and execution. <b>A designer turned project manager</b>: I frame, I drive, I deliver — at Orange and for international brands.",
+ hero_sub:"I bridge creative and execution. <b>A designer turned project manager</b>: I frame, I drive, I deliver, at Orange and for international brands.",
  hero_cta1:"See my projects", hero_cta2:"Get in touch",
  hc_tag:"Currently", hc_title:"HR project manager<br>& coordinator at <b>Orange</b>",
  hc_r1k:"Scope", hc_r1v:"QVCT division · Bridge site",
